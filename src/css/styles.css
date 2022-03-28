@@ -21,87 +21,67 @@
 ul li {
   list-style-type: none; }
 
-.showMenu {
-  display: block !important;
-  animation: fadeIn 0.5s; }
+.showNav {
+  max-height: 500px !important; }
 
-.hideMenu {
-  animation: fadeOut 1s; }
-
-@keyframes fadeIn {
-  0% {
-    height: 0;
-    transform: translate(0, -100px); }
-  100% {
-    height: 1;
-    transform: translate(0, 0); } }
-
-@keyframes fadeOut {
-  0% {
-    display: block !important;
-    height: 1; }
-  100% {
-    display: block !important;
-    height: 0; } }
-
-.nav {
+.header {
   display: flex;
   width: 100%;
   flex-direction: column; }
-  .nav .firstDiv {
+  .header .firstDiv {
     padding: 10px 20px 5px 20px;
     background-color: #f7eee6;
     display: flex;
     align-items: center;
     width: 100%; }
-    .nav .firstDiv .logo img {
+    .header .firstDiv .logo img {
       width: 100%;
       max-width: 150px;
       height: auto; }
-  .nav .secondDiv {
+  .header .secondDiv {
     background-color: black;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center; }
-    .nav .secondDiv .cartButton {
+    .header .secondDiv .cartButton {
       padding: 12px; }
-      .nav .secondDiv .cartButton a {
+      .header .secondDiv .cartButton a {
         color: white; }
-  .nav .divMenuItems {
+  .header .divMenuItems {
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
     background-color: #f7eee6;
     width: 100%; }
-    .nav .divMenuItems ul {
+    .header .divMenuItems ul {
       display: flex;
       padding: 0; }
-      .nav .divMenuItems ul li {
+      .header .divMenuItems ul li {
         padding: 10px; }
-        .nav .divMenuItems ul li a {
+        .header .divMenuItems ul li a {
           text-decoration: none;
           font-size: 20px;
           color: #2c2c2c; }
 
 @media (min-width: 992px) {
-  .nav .firstDiv {
+  .header .firstDiv {
     justify-content: center; }
-    .nav .firstDiv .hamburguerDiv {
+    .header .firstDiv .hamburguerDiv {
       display: none; }
-  .nav .divMenuItems {
-    display: block; }
-    .nav .divMenuItems ul {
-      flex-direction: row;
-      justify-content: center; } }
+  .header .divMenuItems ul {
+    flex-direction: row;
+    justify-content: center; } }
 
 @media (max-width: 991px) {
-  .nav .firstDiv {
+  .header .firstDiv {
     justify-content: space-between; }
-    .nav .firstDiv .logo img {
+    .header .firstDiv .logo img {
       max-width: 80px; }
-    .nav .firstDiv .hamburguerDiv {
+    .header .firstDiv .hamburguerDiv {
       display: block; }
-  .nav .divMenuItems {
-    display: none; }
-    .nav .divMenuItems ul {
+  .header .divMenuItems {
+    max-height: 0; }
+    .header .divMenuItems ul {
       flex-direction: column;
       justify-content: center;
       align-items: center; } }

@@ -11,8 +11,7 @@ export default function NavBar() {
   // Cuando se cambie el tamaño de pantalla se reestableceran los valores
   window.addEventListener("resize", function () {
     isVisibleItems = false;
-    document.getElementById("divMenuItems").classList.remove("hideMenu");
-    document.getElementById("divMenuItems").classList.remove("showMenu");
+    document.getElementById("divMenuItems").classList.remove("showNav");
     document.getElementById("hamburgerButton").classList.remove("is-active");
   });
 
@@ -20,15 +19,11 @@ export default function NavBar() {
   const displayItems = () => {
     isVisibleItems = isVisibleItems ? false : true;
     if (isVisibleItems) {
-      document.getElementById("divMenuItems").classList.add("showMenu");
-      document.getElementById("divMenuItems").classList.remove("hideMenu");
-
+      document.getElementById("divMenuItems").classList.add("showNav");
       document.getElementById("hamburgerButton").classList.remove("is-active");
       document.getElementById("hamburgerButton").classList.add("is-active");
     } else {
-      document.getElementById("divMenuItems").classList.add("hideMenu");
-      document.getElementById("divMenuItems").classList.remove("showMenu");
-
+      document.getElementById("divMenuItems").classList.remove("showNav");
       document.getElementById("hamburgerButton").classList.add("is-active");
       document.getElementById("hamburgerButton").classList.remove("is-active");
     }
@@ -36,49 +31,17 @@ export default function NavBar() {
 
   return (
     <>
-      {/* <div className="row navBar">
-        <div className="col-6 lg:col-12 menuLogo">
-          <img src={logo} alt="" />
-        </div>
+      <header className="header">
 
-        <div className="col-6 menuIcon">
-          <i
-            id="menuButton"
-            className="pi pi-bars menuButton"
-            style={{ fontSize: "2em" }}
-            onClick={() => displayItems()}
-          ></i>
-        </div>
-
-        <div className="col-12 lg:col-12 menuItems" id="menuItems">
-          <ul>
-            <li>
-              <a href="#">Inicio</a>
-            </li>
-            <li>
-              <a href="#">Relojes</a>
-            </li>
-            <li>
-              <a href="#">Acero Blanco</a>
-            </li>
-            <li>
-              <a href="#">Acero Dorado</a>
-            </li>
-            <li>
-              <a href="#">Acero Quirúrgico</a>
-            </li>
-          </ul>
-        </div>
-      </div> */}
-
-      <header className="nav">
         <div className="firstDiv">
           <div className="logo">
             <img src={logo} alt="" />
           </div>
 
           <div className="hamburguerDiv">
-            <button id="hamburgerButton" onClick={() => displayItems()}
+            <button
+              id="hamburgerButton"
+              onClick={() => displayItems()}
               className="hamburger hamburger--collapse"
               type="button"
             >
@@ -86,14 +49,6 @@ export default function NavBar() {
                 <span className="hamburger-inner"></span>
               </span>
             </button>
-
-            {/* <a href="#" onClick={() => displayItems()}>
-              <i
-                id="menuButton"
-                className="pi pi-bars menuButton"
-                style={{ fontSize: "2em" }}
-              ></i>
-            </a> */}
           </div>
         </div>
 
@@ -127,6 +82,7 @@ export default function NavBar() {
             </li>
           </ul>
         </nav>
+        
       </header>
     </>
   );
