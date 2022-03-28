@@ -1,17 +1,20 @@
-import Grid from "@mui/material/Grid";
 import logo from "../img/logo.svg";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import React, { useState } from "react";
-import { Button } from "primereact/button";
+import CartWidget from "./CartWidget";
 
 export default function NavBar() {
   let isVisibleItems = false;
+  const itemsMenu = [
+    "Inicio",
+    "Relojes",
+    "Acero Blanco",
+    "Acero Dorado",
+    "Acero Quirúrgico",
+  ];
 
   // Cuando se cambie el tamaño de pantalla se reestableceran los valores
   window.addEventListener("resize", function () {
     isVisibleItems = false;
-    document.getElementById("divMenuItems").classList.remove("showNav");
+    document.getElementById("divItemsMenu").classList.remove("showNav");
     document.getElementById("hamburgerButton").classList.remove("is-active");
   });
 
@@ -19,11 +22,11 @@ export default function NavBar() {
   const displayItems = () => {
     isVisibleItems = isVisibleItems ? false : true;
     if (isVisibleItems) {
-      document.getElementById("divMenuItems").classList.add("showNav");
+      document.getElementById("divItemsMenu").classList.add("showNav");
       document.getElementById("hamburgerButton").classList.remove("is-active");
       document.getElementById("hamburgerButton").classList.add("is-active");
     } else {
-      document.getElementById("divMenuItems").classList.remove("showNav");
+      document.getElementById("divItemsMenu").classList.remove("showNav");
       document.getElementById("hamburgerButton").classList.add("is-active");
       document.getElementById("hamburgerButton").classList.remove("is-active");
     }
@@ -32,7 +35,6 @@ export default function NavBar() {
   return (
     <>
       <header className="header">
-
         <div className="firstDiv">
           <div className="logo">
             <img src={logo} alt="" />
@@ -53,36 +55,18 @@ export default function NavBar() {
         </div>
 
         <div className="secondDiv">
-          <div className="cartButton">
-            <a href="#">
-              <i
-                className="pi pi-shopping-cart"
-                style={{ fontSize: "2em" }}
-              ></i>
-            </a>
-          </div>
+          <CartWidget/>
         </div>
 
-        <nav className="divMenuItems" id="divMenuItems">
+        <nav className="divItemsMenu" id="divItemsMenu">
           <ul>
-            <li>
-              <a href="#">Inicio</a>
-            </li>
-            <li>
-              <a href="#">Relojes</a>
-            </li>
-            <li>
-              <a href="#">Acero Blanco</a>
-            </li>
-            <li>
-              <a href="#">Acero Dorado</a>
-            </li>
-            <li>
-              <a href="#">Acero Quirúrgico</a>
-            </li>
+            {itemsMenu.map((item) => (
+              <li key={item}>
+                <a href="#">{item}</a>
+              </li>
+            ))}
           </ul>
         </nav>
-        
       </header>
     </>
   );

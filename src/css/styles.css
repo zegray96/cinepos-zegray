@@ -43,22 +43,21 @@ ul li {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center; }
-    .header .secondDiv .cartButton {
-      padding: 12px; }
-      .header .secondDiv .cartButton a {
-        color: white; }
-  .header .divMenuItems {
+    justify-content: center;
+    padding: 20px; }
+    .header .secondDiv .cartButton a {
+      color: white; }
+  .header .divItemsMenu {
     overflow: hidden;
     transition: max-height 0.5s ease-out;
     background-color: #f7eee6;
     width: 100%; }
-    .header .divMenuItems ul {
+    .header .divItemsMenu ul {
       display: flex;
       padding: 0; }
-      .header .divMenuItems ul li {
+      .header .divItemsMenu ul li {
         padding: 10px; }
-        .header .divMenuItems ul li a {
+        .header .divItemsMenu ul li a {
           text-decoration: none;
           font-size: 20px;
           color: #2c2c2c; }
@@ -68,7 +67,7 @@ ul li {
     justify-content: center; }
     .header .firstDiv .hamburguerDiv {
       display: none; }
-  .header .divMenuItems ul {
+  .header .divItemsMenu ul {
     flex-direction: row;
     justify-content: center; } }
 
@@ -79,9 +78,9 @@ ul li {
       max-width: 80px; }
     .header .firstDiv .hamburguerDiv {
       display: block; }
-  .header .divMenuItems {
+  .header .divItemsMenu {
     max-height: 0; }
-    .header .divMenuItems ul {
+    .header .divItemsMenu ul {
       flex-direction: column;
       justify-content: center;
       align-items: center; } }
