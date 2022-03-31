@@ -1,8 +1,10 @@
+import React, { useState } from "react";
 import logo from "../img/logo.svg";
 import CartWidget from "./CartWidget";
 
 export default function NavBar() {
-  let isVisibleItems = false;
+  const [isVisibleItems, setIsVisibleItems] = useState(false);
+
   const itemsMenu = [
     "Inicio",
     "Relojes",
@@ -13,23 +15,12 @@ export default function NavBar() {
 
   // Cuando se cambie el tamaño de pantalla se reestableceran los valores
   window.addEventListener("resize", function () {
-    isVisibleItems = false;
-    document.getElementById("divItemsMenu").classList.remove("showNav");
-    document.getElementById("hamburgerButton").classList.remove("is-active");
+    setIsVisibleItems(false);
   });
 
   // Funcion para mostrar el menu cuando tenemos vista de celular - tablet
   const displayItems = () => {
-    isVisibleItems = isVisibleItems ? false : true;
-    if (isVisibleItems) {
-      document.getElementById("divItemsMenu").classList.add("showNav");
-      document.getElementById("hamburgerButton").classList.remove("is-active");
-      document.getElementById("hamburgerButton").classList.add("is-active");
-    } else {
-      document.getElementById("divItemsMenu").classList.remove("showNav");
-      document.getElementById("hamburgerButton").classList.add("is-active");
-      document.getElementById("hamburgerButton").classList.remove("is-active");
-    }
+    setIsVisibleItems(isVisibleItems ? false : true);
   };
 
   return (
@@ -44,7 +35,9 @@ export default function NavBar() {
             <button
               id="hamburgerButton"
               onClick={() => displayItems()}
-              className="hamburger hamburger--collapse"
+              className={`hamburger hamburger--collapse ${
+                isVisibleItems ? "is-active" : ""
+              }`}
               type="button"
             >
               <span className="hamburger-box">
@@ -55,10 +48,13 @@ export default function NavBar() {
         </div>
 
         <div className="secondDiv">
-          <CartWidget/>
+          <CartWidget />
         </div>
 
-        <nav className="divItemsMenu" id="divItemsMenu">
+        <nav
+          className={`divItemsMenu ${isVisibleItems ? "showNav" : ""}`}
+          id="divItemsMenu"
+        >
           <ul>
             {itemsMenu.map((item) => (
               <li key={item}>
