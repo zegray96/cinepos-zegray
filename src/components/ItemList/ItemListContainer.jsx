@@ -7,12 +7,13 @@ export default function ItemListContainer() {
 
   useEffect(() => {
     const getItems = new Promise((resolve, reject) => {
-      resolve(articles);
+      setTimeout(() => {
+        resolve(articles);
+      }, 2000);
     });
 
     getItems
       .then((res) => {
-        console.log(res);
         // Cuando la promesa devuelva los datos, los seteamos a item list
         setItemsList(res);
       })

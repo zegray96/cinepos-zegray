@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer />
+      <div className="container-md">
+        <ItemListContainer />
+      </div>
     </>
   );
 }
