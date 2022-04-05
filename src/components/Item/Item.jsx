@@ -21,14 +21,25 @@ export default function Item({ itemInfo }) {
 
   return (
     <>
-      <div className="col-12 sm:col-4">
-        <Card
-          className="h-full"
-          title={itemInfo.title}
-          subTitle={`$ ${itemInfo.price}`}
-          footer={footer}
-          header={header}
-        ></Card>
+      <div className="col-12 sm:col-6 md:col-4">
+        <div className="card">
+          <div className="top">
+            <div
+              className="image"
+              style={{
+                backgroundImage: `url(${require(`../../utils/articlesImg/${itemInfo.pictureUrl}`)})`,
+              }}
+            ></div>
+          </div>
+
+          <div className="content">
+            <div className="title">{itemInfo.title}</div>
+            <div className="price">$ {itemInfo.price}</div>
+          </div>
+          <div className="bottom">
+            <Button label="Ver Más" className="p-button-outlined p-button-info" />
+          </div>
+        </div>
       </div>
     </>
   );

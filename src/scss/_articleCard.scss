@@ -1,0 +1,40 @@
+.card {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  .top {
+    height: 400px;
+    .image {
+      background-size: 100%;
+      transition: all 0.3s ease-in-out;
+      height: 100%;
+      background-position: center;
+    //   background-size: cover;
+      &:hover {
+        background-size: 150%;
+      }
+    }
+  }
+  .content {
+    text-align: center;
+    padding: 10px;
+    .title {
+      color: #797979;
+      font-size: 20px;
+    }
+    .price {
+      color: #2e3e58;
+      font-size: 25px;
+      font-weight: 700;
+    }
+  }
+  .bottom {
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+  }
+}
