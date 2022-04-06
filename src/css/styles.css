@@ -13,10 +13,9 @@ body {
   .card .top {
     height: 400px; }
     .card .top .image {
-      background-size: 100%;
-      transition: all 0.3s ease-in-out;
       height: 100%;
-      background-position: center; }
+      background-position: center;
+      background-size: cover; }
       .card .top .image:hover {
         background-size: 150%; }
   .card .content {

@@ -9,11 +9,9 @@
   .top {
     height: 400px;
     .image {
-      background-size: 100%;
-      transition: all 0.3s ease-in-out;
       height: 100%;
       background-position: center;
-    //   background-size: cover;
+      background-size: cover;
       &:hover {
         background-size: 150%;
       }
