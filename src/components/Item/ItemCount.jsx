@@ -15,32 +15,28 @@ export default function ItemCount({ addToCart, stock, initial }) {
 
   return (
     <>
-      <div className="col-12 md:col-4 myPanel">
-        <p>Reloj digital</p>
-        <div className="p-inputgroup">
-          <Button
-            disabled={quantity <= 0 ? true : false}
-            icon="pi pi-minus"
-            className="p-button-outlined p-button-danger"
-            onClick={() => removeQuantityButton()}
-          />
-          <InputText placeholder="Ingrese cantidad" value={quantity} />
-          <Button
-            disabled={quantity >= stock ? true : false}
-            icon="pi pi-plus"
-            className="p-button-outlined p-button-success"
-            onClick={() => addQuantityButton()}
-          />
-        </div>
-
+      <div className="p-inputgroup">
         <Button
-          disabled={quantity <= 0 || quantity > stock ? true : false}
-          onClick={() => addToCart(quantity)}
-          label="Añadir al carrito"
-          className="p-button-outlined w-full mt-3"
+          disabled={quantity <= 0 ? true : false}
+          icon="pi pi-minus"
+          className="p-button-secondary"
+          onClick={() => removeQuantityButton()}
         />
-
+        <InputText placeholder="Ingrese cantidad" value={quantity} />
+        <Button
+          disabled={quantity >= stock ? true : false}
+          icon="pi pi-plus"
+          className="p-button-secondary"
+          onClick={() => addQuantityButton()}
+        />
       </div>
+
+      <Button
+        disabled={quantity <= 0 || quantity > stock ? true : false}
+        onClick={() => addToCart(quantity)}
+        label="Añadir al carrito"
+        className="p-button-outlined w-full mt-3"
+      />
     </>
   );
 }

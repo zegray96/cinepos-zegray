@@ -1,0 +1,20 @@
+.articleDetail {
+  .image {
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+  }
+  .content {
+    padding: 20px;
+    .title {
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .price {
+      font-size: 25px;
+    }
+    .description {
+      font-size: 18px;
+    }
+  }
+}

@@ -5,6 +5,10 @@ import { getArticle } from "../../utils/articles";
 export default function ItemDetailContainer() {
   const [article, setArticle] = useState({});
 
+  const addToCart = (count) => {
+    alert(`Se agregro ${count} items al carrito`);
+  };
+
   useEffect(() => {
     getArticle()
       .then((res) => {
@@ -17,7 +21,7 @@ export default function ItemDetailContainer() {
 
   return (
     <>
-      <ItemDetail article={article} />
+      <ItemDetail article={article} addToCart={addToCart} />
     </>
   );
 }

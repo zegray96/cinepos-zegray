@@ -33,6 +33,21 @@ body {
     text-align: center;
     margin-top: auto; }
 
+.articleDetail .image {
+  background-size: cover;
+  background-position: center;
+  height: 650px; }
+
+.articleDetail .content {
+  padding: 20px; }
+  .articleDetail .content .title {
+    font-size: 40px;
+    font-weight: bold; }
+  .articleDetail .content .price {
+    font-size: 25px; }
+  .articleDetail .content .description {
+    font-size: 18px; }
+
 .hamburger.is-active .hamburger-inner,
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
