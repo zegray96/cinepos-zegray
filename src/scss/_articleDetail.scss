@@ -1,9 +1,4 @@
 .articleDetail {
-  .image {
-    background-size: cover;
-    background-position: center;
-    height: 650px;
-  }
   .content {
     padding: 20px;
     .title {
@@ -11,7 +6,8 @@
       font-weight: bold;
     }
     .price {
-      font-size: 25px;
+      font-size: 28px;
+      
     }
     .description {
       font-size: 18px;
