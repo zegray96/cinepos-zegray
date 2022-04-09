@@ -1,4 +1,4 @@
-export default [
+const articles = [
     {
         "id": 1,
         "title": "Reloj Michelle Plateado con iman",
@@ -112,4 +112,28 @@ export default [
         "pictureUrl": "Collar-Valquiria-Lunita-42-Cm-Acero-Quirurgico.jpg"
     }
 
-]
+];
+
+const article = {
+    "id": 1,
+    "title": "Reloj Michelle Plateado con iman",
+    "description": "",
+    "price": 879,
+    "pictureUrl": "Reloj-Michelle-Plateado-con-iman.jpg"
+};
+
+export const getArticles = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(articles);
+        }, 2000);
+    });
+}
+
+export const getArticle = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(article);
+        }, 2000);
+    });
+}

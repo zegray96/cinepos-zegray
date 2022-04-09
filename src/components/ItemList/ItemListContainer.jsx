@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
-import articles from "../../utils/articles";
+import { getArticles } from "../../utils/articles";
 
 export default function ItemListContainer() {
-  const [itemsList, setItemsList] = useState();
+  const [itemsList, setItemsList] = useState([]);
 
   useEffect(() => {
-    const getItems = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(articles);
-      }, 2000);
-    });
-
-    getItems
+    getArticles()
       .then((res) => {
         // Cuando la promesa devuelva los datos, los seteamos a item list
         setItemsList(res);
@@ -22,5 +16,9 @@ export default function ItemListContainer() {
       });
   }, []);
 
-  return <>{itemsList ? <ItemList itemsList={itemsList} /> : <></>}</>;
+  return (
+    <>
+      <ItemList itemsList={itemsList} />
+    </>
+  );
 }
