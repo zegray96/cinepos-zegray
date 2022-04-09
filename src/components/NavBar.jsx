@@ -1,16 +1,32 @@
 import React, { useState } from "react";
 import logo from "../img/logo.svg";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [isVisibleItems, setIsVisibleItems] = useState(false);
 
   const itemsMenu = [
-    "Inicio",
-    "Relojes",
-    "Acero Blanco",
-    "Acero Dorado",
-    "Acero Quirúrgico",
+    {
+      title: "Inicio",
+      url: "/",
+    },
+    {
+      title: "Relojes",
+      url: "/category/relojes",
+    },
+    {
+      title: "Acero Blanco",
+      url: "/category/acero-blanco",
+    },
+    {
+      title: "Acero Dorado",
+      url: "/category/acero-dorado",
+    },
+    {
+      title: "Acero Quirúrgico",
+      url: "/category/acero-quirurgico",
+    },
   ];
 
   // Cuando se cambie el tamaño de pantalla se reestableceran los valores
@@ -51,14 +67,11 @@ export default function NavBar() {
           <CartWidget />
         </div>
 
-        <nav
-          className={`divItemsMenu ${isVisibleItems ? "showNav" : ""}`}
-          id="divItemsMenu"
-        >
+        <nav className={`divItemsMenu ${isVisibleItems ? "showNav" : ""}`}>
           <ul>
             {itemsMenu.map((item) => (
-              <li key={item}>
-                <a href="#">{item}</a>
+              <li key={item.title}>
+                <Link to={item.url}>{item.title}</Link>
               </li>
             ))}
           </ul>

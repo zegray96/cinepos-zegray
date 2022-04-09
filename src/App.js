@@ -2,18 +2,21 @@ import NavBar from './components/NavBar.jsx';
 import ItemListContainer from './components/ItemList/ItemListContainer.jsx';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer.jsx';
 import { Divider } from 'primereact/divider';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
   return (
-    <>
+    <BrowserRouter>
       <NavBar />
-      <div className="container-md">
-        <ItemDetailContainer />
-        <Divider />
-        <ItemListContainer />
-      </div>
-    </>
+
+      <Routes>
+        <Route exact path="/" element={<ItemListContainer />} />
+        <Route exact path="/category/:categoryName" element={<ItemListContainer />} />
+        <Route exact path="/item/:articleId" element={<ItemDetailContainer />} />
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 

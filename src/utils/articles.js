@@ -6,6 +6,10 @@ const articles = [
         "price": 879,
         "picture_url": "Reloj-Michelle-Plateado-con-iman.jpg",
         "stock": 100,
+        "category": {
+            "id": 1,
+            "name": "Relojes"
+        }
     },
     {
         "id": 2,
@@ -14,6 +18,10 @@ const articles = [
         "price": 879,
         "picture_url": "Reloj-Fausta-Negro.jpg",
         "stock": 100,
+        "category": {
+            "id": 1,
+            "name": "Relojes"
+        }
     },
     {
         "id": 3,
@@ -22,6 +30,10 @@ const articles = [
         "price": 799,
         "picture_url": "Reloj-Loto-Blanco.jpg",
         "stock": 100,
+        "category": {
+            "id": 1,
+            "name": "Relojes"
+        }
     },
     {
         "id": 4,
@@ -30,6 +42,10 @@ const articles = [
         "price": 699,
         "picture_url": "Reloj-Digital-Forever-Blanco.jpg",
         "stock": 100,
+        "category": {
+            "id": 1,
+            "name": "Relojes"
+        }
     },
     {
         "id": 5,
@@ -38,6 +54,10 @@ const articles = [
         "price": 249,
         "picture_url": "Anillo-Girasol-acero-blanco.jpg",
         "stock": 100,
+        "category": {
+            "id": 2,
+            "name": "Acero Blanco"
+        }
     },
     {
         "id": 6,
@@ -46,6 +66,10 @@ const articles = [
         "price": 499,
         "picture_url": "Collar-Reir-42-Cm-Acero-blanco.jpg",
         "stock": 100,
+        "category": {
+            "id": 2,
+            "name": "Acero Blanco"
+        }
     },
     {
         "id": 7,
@@ -54,6 +78,10 @@ const articles = [
         "price": 399,
         "picture_url": "Esclava-Inicial-Acero-blanco.jpg",
         "stock": 100,
+        "category": {
+            "id": 2,
+            "name": "Acero Blanco"
+        }
     },
     {
         "id": 8,
@@ -62,6 +90,10 @@ const articles = [
         "price": 999,
         "picture_url": "Collar-Kaley-45-Cm-Acero-blanco.jpg",
         "stock": 100,
+        "category": {
+            "id": 2,
+            "name": "Acero Blanco"
+        }
     },
     {
         "id": 9,
@@ -70,6 +102,10 @@ const articles = [
         "price": 419,
         "picture_url": "Collar-Cruz-Vacia-45-Cm-Acero-dorado.jpg",
         "stock": 100,
+        "category": {
+            "id": 3,
+            "name": "Acero Dorado"
+        }
     },
     {
         "id": 10,
@@ -78,6 +114,10 @@ const articles = [
         "price": 435,
         "picture_url": "Pulsera-Donkey-19-Cm-Acero-dorado.jpg",
         "stock": 100,
+        "category": {
+            "id": 3,
+            "name": "Acero Dorado"
+        }
     },
     {
         "id": 11,
@@ -86,6 +126,10 @@ const articles = [
         "price": 269,
         "picture_url": "Aros-Key-Acero-dorado.jpg",
         "stock": 100,
+        "category": {
+            "id": 3,
+            "name": "Acero Dorado"
+        }
     },
     {
         "id": 12,
@@ -94,6 +138,10 @@ const articles = [
         "price": 719,
         "picture_url": "Collar-Burlete-44-Cm-Acero-Dorado.jpg",
         "stock": 100,
+        "category": {
+            "id": 3,
+            "name": "Acero Dorado"
+        }
     },
     {
         "id": 13,
@@ -102,6 +150,10 @@ const articles = [
         "price": 299,
         "picture_url": "Aros-Juliaca-Acero-quirurgico.jpg",
         "stock": 100,
+        "category": {
+            "id": 4,
+            "name": "Acero Quirurgico"
+        }
     },
     {
         "id": 14,
@@ -110,6 +162,10 @@ const articles = [
         "price": 199,
         "picture_url": "Anillo-Keira-Estrella-Acero-quirurgico.jpg",
         "stock": 100,
+        "category": {
+            "id": 4,
+            "name": "Acero Quirurgico"
+        }
     },
     {
         "id": 15,
@@ -118,6 +174,10 @@ const articles = [
         "price": 389,
         "picture_url": "Collar-Valquiria-Alita-42-Cm-Acero-Quirurgico.jpg",
         "stock": 100,
+        "category": {
+            "id": 4,
+            "name": "Acero Quirurgico"
+        }
     },
     {
         "id": 16,
@@ -126,19 +186,15 @@ const articles = [
         "price": 389,
         "picture_url": "Collar-Valquiria-Lunita-42-Cm-Acero-Quirurgico.jpg",
         "stock": 100,
+        "category": {
+            "id": 4,
+            "name": "Acero Quirurgico"
+        }
     }
 
 ];
 
-const article = {
-    "id": 1,
-    "title": "Reloj Michelle Plateado con iman",
-    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
-    "price": 879,
-    "picture_url": "Reloj-Michelle-Plateado-con-iman.jpg",
-    "stock": 100,
-};
-
+/**Methods */
 export const getArticles = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -147,10 +203,30 @@ export const getArticles = () => {
     });
 }
 
-export const getArticle = () => {
+export const getArticleById = (id) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(article);
+            let articlesFilter = articles.filter(e => e.id == id);
+            if (articlesFilter[0]) {
+                resolve(articlesFilter[0]);
+            } else {
+                reject("Articulo no encontrado");
+            }
         }, 2000);
     });
 }
+
+export const getArticlesByCategoryId = (id) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let articlesFilter = articles.filter(e => e.category.id == id)
+            if (Object.keys(articlesFilter).length != 0) {
+                resolve(articlesFilter);
+            } else {
+                reject("No se encontraron articulos para esta categoria");
+            }
+            resolve(articlesFilter);
+        }, 2000);
+    });
+}
+/**End methods */

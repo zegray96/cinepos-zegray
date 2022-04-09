@@ -32,6 +32,8 @@ body {
     padding: 10px;
     text-align: center;
     margin-top: auto; }
+    .card .bottom a {
+      text-decoration: none; }
 
 .articleDetail .content {
   padding: 20px; }

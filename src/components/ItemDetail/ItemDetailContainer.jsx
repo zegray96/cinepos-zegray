@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { getArticle } from "../../utils/articles";
+import { getArticleById } from "../../utils/articles";
 import { Skeleton } from "primereact/skeleton";
+import { useParams } from "react-router-dom";
 
 export default function ItemDetailContainer() {
+  const { articleId } = useParams();
+
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +27,6 @@ export default function ItemDetailContainer() {
             <Skeleton className="mt-5" height="20px"></Skeleton>
 
             <Skeleton className="mt-5" height="400px"></Skeleton>
-            
           </div>
         </div>
       </div>
@@ -32,7 +34,7 @@ export default function ItemDetailContainer() {
   };
 
   useEffect(() => {
-    getArticle()
+    getArticleById(articleId)
       .then((res) => {
         setArticle(res);
         setLoading(false);
@@ -40,17 +42,19 @@ export default function ItemDetailContainer() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [articleId]);
 
   return (
     <>
-      {loading ? (
-        <>{skeletonTemplate()}</>
-      ) : (
-        <>
-          <ItemDetail article={article} addToCart={addToCart} />
-        </>
-      )}
+      <div className="container-md">
+        {loading ? (
+          <>{skeletonTemplate()}</>
+        ) : (
+          <>
+            <ItemDetail article={article} addToCart={addToCart} />
+          </>
+        )}
+      </div>
     </>
   );
 }

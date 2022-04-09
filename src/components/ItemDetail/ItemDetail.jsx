@@ -10,7 +10,7 @@ export default function ItemDetail({ article, addToCart }) {
         <div className="row articleDetail">
           <div className="image col-12 md:col-6">
             <Image
-              src={`articlesImg/${article.picture_url}`}
+              src={`/articlesImg/${article.picture_url}`}
               alt="Image"
               width="100%"
               preview
