@@ -178,3 +178,13 @@ ul li {
     width: 1140px; } }
 
 /*End container-md*/
+/*Category Tag*/
+.category-tag {
+  background: #f7eee6;
+  color: #000000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.4rem;
+  border-radius: 3px; }
+
+/*End category tag*/

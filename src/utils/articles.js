@@ -194,6 +194,29 @@ const articles = [
 
 ];
 
+const categories = [
+    {
+        "id": 1,
+        "name": "Relojes",
+        "slug": "relojes"
+    },
+    {
+        "id": 2,
+        "name": "Acero Blanco",
+        "slug": "acero-blanco"
+    },
+    {
+        "id": 3,
+        "name": "Acero Dorado",
+        "slug": "acero-dorado"
+    },
+    {
+        "id": 4,
+        "name": "Acero Quirurgico",
+        "slug": "acero-quirurgico"
+    }
+]
+
 /**Methods */
 export const getArticles = () => {
     return new Promise((resolve, reject) => {
@@ -206,9 +229,9 @@ export const getArticles = () => {
 export const getArticleById = (id) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            let articlesFilter = articles.filter(e => e.id == id);
-            if (articlesFilter[0]) {
-                resolve(articlesFilter[0]);
+            let article = articles.find(e => e.id == id);
+            if (article) {
+                resolve(article);
             } else {
                 reject("Articulo no encontrado");
             }
@@ -219,13 +242,26 @@ export const getArticleById = (id) => {
 export const getArticlesByCategoryId = (id) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            let articlesFilter = articles.filter(e => e.category.id == id)
-            if (Object.keys(articlesFilter).length != 0) {
+            let articlesFilter = articles.filter(e => e.category.id == id);
+            if (Object.keys(articlesFilter).length !== 0) {
                 resolve(articlesFilter);
             } else {
-                reject("No se encontraron articulos para esta categoria");
+                reject("Categoria no posee articulos");
             }
-            resolve(articlesFilter);
+
+        }, 2000);
+    });
+}
+
+export const getCategoryBySlug = (slug) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let category = categories.find(e => e.slug == slug);
+            if (category) {
+                resolve(category);
+            } else {
+                reject("Categoria no encontrada");
+            }
         }, 2000);
     });
 }

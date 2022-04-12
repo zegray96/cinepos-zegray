@@ -44,7 +44,9 @@ export default function NavBar() {
       <header className="header">
         <div className="firstDiv">
           <div className="logo">
-            <img src={logo} alt="" />
+            <Link to="/">
+              <img src={logo} alt="" />
+            </Link>
           </div>
 
           <div className="hamburguerDiv">

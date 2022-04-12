@@ -7,12 +7,14 @@ export default function Item({ itemInfo }) {
       <div className="col-12 sm:col-6 md:col-4">
         <div className="card">
           <div className="top">
-            <div
-              className="image"
-              style={{
-                backgroundImage: `url(/articlesImg/${itemInfo.picture_url})`,
-              }}
-            ></div>
+            <Link to={`/item/${itemInfo.id}`}>
+              <div
+                className="image"
+                style={{
+                  backgroundImage: `url(/articlesImg/${itemInfo.picture_url})`,
+                }}
+              ></div>
+            </Link>
           </div>
 
           <div className="content">

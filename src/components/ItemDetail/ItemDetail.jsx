@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Image } from "primereact/image";
 import ItemCount from "../Item/ItemCount";
 import { Divider } from "primereact/divider";
+import { Tag } from "primereact/tag";
 
 export default function ItemDetail({ article, addToCart }) {
   return (
@@ -25,6 +26,13 @@ export default function ItemDetail({ article, addToCart }) {
               <Divider />
               <p>{article.description}</p>
               <Divider />
+            </div>
+
+            <div className="mt-4">
+              <span className="mr-2">Categoria:</span>
+              <span className="category-tag  mr-2">
+                <span>{article.category.name}</span>
+              </span>
             </div>
 
             <div className="mt-8">
