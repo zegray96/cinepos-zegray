@@ -1,10 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Image } from "primereact/image";
 import ItemCount from "../Item/ItemCount";
 import { Divider } from "primereact/divider";
-import { Tag } from "primereact/tag";
+import { Button } from "primereact/button";
+import { Link } from "react-router-dom";
 
-export default function ItemDetail({ article, addToCart }) {
+export default function ItemDetail({ article }) {
+  const [quantityCart, setQuantityCart] = useState(0);
+  const [showGoCheckout, setShowGoCheckout] = useState(false);
+
+  const addToCart = (quantity) => {
+    setQuantityCart(quantityCart + quantity);
+    setShowGoCheckout(true);
+  };
+
   return (
     <>
       <div className="mt-5 mb-5">
@@ -35,12 +44,26 @@ export default function ItemDetail({ article, addToCart }) {
               </span>
             </div>
 
+
             <div className="mt-8">
-              <ItemCount
-                addToCart={addToCart}
-                stock={article.stock}
-                initial={0}
-              />
+              {showGoCheckout ? (
+                <>
+                  <Link to="/cart" className="no-underline">
+                    <Button className="w-full mt-3" label="Finalizar Compra" />
+                  </Link>
+                  <Button
+                    className="w-full mt-3"
+                    label="Seguir Comprando"
+                    onClick={() => setShowGoCheckout(false)}
+                  />
+                </>
+              ) : (
+                <ItemCount
+                  addToCart={addToCart}
+                  stock={article.stock}
+                  initial={0}
+                />
+              )}
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ const articles = [
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 879,
         "picture_url": "Reloj-Michelle-Plateado-con-iman.jpg",
-        "stock": 100,
+        "stock": 2,
         "category": {
             "id": 1,
             "name": "Relojes"

@@ -10,10 +10,6 @@ export default function ItemDetailContainer() {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const addToCart = (count) => {
-    alert(`Se agregro ${count} items al carrito`);
-  };
-
   const skeletonTemplate = () => {
     return (
       <div className="mt-5 mb-5">
@@ -51,7 +47,7 @@ export default function ItemDetailContainer() {
           <>{skeletonTemplate()}</>
         ) : (
           <>
-            <ItemDetail article={article} addToCart={addToCart} />
+            <ItemDetail article={article} />
           </>
         )}
       </div>
