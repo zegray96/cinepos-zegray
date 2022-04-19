@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Image } from "primereact/image";
 import ItemCount from "../Item/ItemCount";
 import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 export default function ItemDetail({ article }) {
-  const [quantityCart, setQuantityCart] = useState(0);
+  const { addItem } = useContext(CartContext);
+  // const [quantityCart, setQuantityCart] = useState(0);
   const [showGoCheckout, setShowGoCheckout] = useState(false);
 
   const addToCart = (quantity) => {
-    setQuantityCart(quantityCart + quantity);
+    addItem(article, quantity);
+    // setQuantityCart(quantityCart + quantity);
     setShowGoCheckout(true);
   };
 
@@ -43,7 +46,6 @@ export default function ItemDetail({ article }) {
                 <span>{article.category.name}</span>
               </span>
             </div>
-
 
             <div className="mt-8">
               {showGoCheckout ? (

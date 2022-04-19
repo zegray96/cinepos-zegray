@@ -38,7 +38,7 @@ export default function ItemCount({ addToCart, stock, initial }) {
         </div>
         <Button
           disabled={quantity <= 0 || quantity > stock}
-          onClick={() => addToCart(quantity)}
+          onClick={() => addToCart( quantity)}
           label="Añadir al carrito"
           className="p-button-outlined w-full mt-3"
         />
