@@ -7,12 +7,14 @@ import {
   getCategoryBySlug,
 } from "../../utils/articles";
 import { Skeleton } from "primereact/skeleton";
+import ErrorPage from "../ErrorPage";
 
 export default function ItemListContainer() {
   const { categorySlug } = useParams();
 
   const [itemsList, setItemsList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const skeletonTemplate = () => {
     return (
@@ -35,6 +37,8 @@ export default function ItemListContainer() {
   useEffect(() => {
     // Mostramos el skeleton
     setLoading(true);
+    // Limpiamos erores
+    setError(null);
 
     if (categorySlug) {
       // Buscamos la categoria por el slug
@@ -44,26 +48,33 @@ export default function ItemListContainer() {
           getArticlesByCategoryId(res.id)
             .then((res) => {
               setItemsList(res);
-              // Ocultamos el skeleton
-              setLoading(false);
             })
             .catch((err) => {
-              console.log(err);
+              setError(err);
+            })
+            .finally(() => {
+              // Ocultamos el skeleton
+              setLoading(false);
             });
         })
         .catch((err) => {
-          console.log(err);
+          // Ocultamos el skeleton
+          setLoading(false);
+          // Mostramos mensaje de error
+          setError(err);
         });
     } else {
       // Mostraremos todos los articulos
       getArticles()
         .then((res) => {
           setItemsList(res);
-          // Ocultamos el skeleton
-          setLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          setError(err);
+        })
+        .finally(() => {
+          // Ocultamos el skeleton
+          setLoading(false);
         });
     }
   }, [categorySlug]);
@@ -71,13 +82,9 @@ export default function ItemListContainer() {
   return (
     <>
       <div className="container-md mt-5">
-        {loading ? (
-          <>{skeletonTemplate()}</>
-        ) : (
-          <>
-            <ItemList itemsList={itemsList} />
-          </>
-        )}
+        {loading && skeletonTemplate()}
+        {error && <ErrorPage errorMessage={error} />}
+        {!loading && !error && <ItemList itemsList={itemsList} />}
       </div>
     </>
   );

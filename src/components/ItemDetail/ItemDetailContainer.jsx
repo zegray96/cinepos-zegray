@@ -3,12 +3,14 @@ import ItemDetail from "./ItemDetail";
 import { getArticleById } from "../../utils/articles";
 import { Skeleton } from "primereact/skeleton";
 import { useParams } from "react-router-dom";
+import ErrorPage from "../ErrorPage";
 
 export default function ItemDetailContainer() {
   const { articleId } = useParams();
 
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const skeletonTemplate = () => {
     return (
@@ -36,20 +38,20 @@ export default function ItemDetailContainer() {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        setError(err);
+      })
+      .finally(() => {
+        // Ocultamos el skeleton
+        setLoading(false);
       });
   }, [articleId]);
 
   return (
     <>
       <div className="container-md">
-        {loading ? (
-          <>{skeletonTemplate()}</>
-        ) : (
-          <>
-            <ItemDetail article={article} />
-          </>
-        )}
+        {loading && skeletonTemplate()}
+        {error && <ErrorPage errorMessage={error} />}
+        {!loading && !error && <ItemDetail article={article} />}
       </div>
     </>
   );
