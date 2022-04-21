@@ -1,4 +1,5 @@
 import NavBar from './components/NavBar.jsx';
+import Footer from './components/Footer.jsx';
 import ItemListContainer from './components/ItemList/ItemListContainer.jsx';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer.jsx';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -21,6 +22,8 @@ function App() {
             <Route exact path="/item/:articleId" element={<ItemDetailContainer />} />
             <Route exact path="/cart" element={<CartContainer />} />
           </Routes>
+
+          <Footer />
 
         </CartContextProvider>
       </ToastMessageContextProvider>
