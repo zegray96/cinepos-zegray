@@ -16,11 +16,6 @@ export default function ItemCount({ addToCart, stock, initial }) {
   return (
     <>
       <div className="mt-4">
-        <span className="mr-2">Stock Disponible:</span>
-        <span className="mr-2">
-          <span>{stock}</span>
-        </span>
-
         <div className="p-inputgroup mt-2">
           <Button
             disabled={quantity <= 0}

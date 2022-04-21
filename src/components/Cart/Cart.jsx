@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 export default function Cart({ articlesList }) {
-  const { removeItem, clear, totalCart } = useContext(CartContext);
+  const { removeItem, clear, getTotalCart } = useContext(CartContext);
 
   /** Table templates */
   const priceTemplate = (rowData) => {
@@ -30,7 +30,7 @@ export default function Cart({ articlesList }) {
   return (
     <>
       <div className="mb-2 mt-2">
-        <h3>Total: ${totalCart}</h3>
+        <h3>Total: ${getTotalCart()}</h3>
       </div>
 
       <div className="mb-2 mt-2">

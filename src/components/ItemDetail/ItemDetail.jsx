@@ -8,13 +8,16 @@ import { CartContext } from "../../context/CartContext";
 
 export default function ItemDetail({ article }) {
   const { addItem } = useContext(CartContext);
-  // const [quantityCart, setQuantityCart] = useState(0);
   const [showGoCheckout, setShowGoCheckout] = useState(false);
+  const [outStockMsg, setOutStockMsg] = useState(null);
 
   const addToCart = (quantity) => {
-    addItem(article, quantity);
-    // setQuantityCart(quantityCart + quantity);
-    setShowGoCheckout(true);
+    let msg = addItem(article, quantity);
+    if (msg != "Cantidad supera el stock actual") {
+      setShowGoCheckout(true);
+    }else{
+      setOutStockMsg(msg);
+    }
   };
 
   return (
@@ -60,11 +63,21 @@ export default function ItemDetail({ article }) {
                   />
                 </>
               ) : (
-                <ItemCount
-                  addToCart={addToCart}
-                  stock={article.stock}
-                  initial={0}
-                />
+                <>
+                  <span className="mr-2">Stock Disponible:</span>
+                  <span className="mr-2">
+                    <span>{article.stock}</span>
+                  </span>
+                  
+                  {outStockMsg && <p className="p-error font-bold">{outStockMsg}</p>}
+                  
+
+                  <ItemCount
+                    addToCart={addToCart}
+                    stock={article.stock}
+                    initial={0}
+                  />
+                </>
               )}
             </div>
           </div>
