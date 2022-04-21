@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../img/logo.svg";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
+import { Button } from "primereact/button";
 
 export default function NavBar() {
+  const { getItemsCountCart } = useContext(CartContext);
   const [isVisibleItems, setIsVisibleItems] = useState(false);
 
   const itemsMenu = [
@@ -66,7 +69,13 @@ export default function NavBar() {
         </div>
 
         <div className="secondDiv">
-          <CartWidget />
+          <Button
+            type="button"
+            label="Mi Cuenta"
+            icon="pi pi-user"
+            className="mr-4 ml-4 p-button-sm p-button-info"
+          ></Button>
+          {getItemsCountCart() && <CartWidget />}
         </div>
 
         <nav className={`divItemsMenu ${isVisibleItems ? "showNav" : ""}`}>

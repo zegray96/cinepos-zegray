@@ -6,7 +6,7 @@ export default function CartContainer() {
 
   return (
     <div className="container-md mt-5">
-      <h2>Mi Carrito</h2>
+      <p className="text-4xl">Mi Carrito</p>
       <Cart articlesList={articlesCart} />
     </div>
   );
