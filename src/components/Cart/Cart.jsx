@@ -5,7 +5,11 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
 export default function Cart({ articlesList }) {
-  const { removeItem, clear, getTotalCart } = useContext(CartContext);
+  const {
+    openDeleteConfirmDialog,
+    openClearConfirmDialog,
+    getTotalCart,
+  } = useContext(CartContext);
 
   /** Table templates */
   const priceTemplate = (rowData) => {
@@ -19,7 +23,7 @@ export default function Cart({ articlesList }) {
   const actionsButtonsTemplate = (rowData) => {
     return (
       <Button
-        onClick={() => removeItem(rowData)}
+        onClick={() => openDeleteConfirmDialog(rowData)}
         icon="pi pi-trash"
         className="p-button-sm p-button-danger"
       />
@@ -36,7 +40,7 @@ export default function Cart({ articlesList }) {
       <div className="mb-2 mt-2">
         <Button
           label="Limpiar"
-          onClick={() => clear()}
+          onClick={() => openClearConfirmDialog()}
           className="p-button-sm p-button-danger"
         />
       </div>
