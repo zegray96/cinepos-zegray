@@ -15,7 +15,7 @@ export default function CartContextProvider({ children }) {
   const [articlesCart, setArticlesCart] = useState([]);
 
   const addItem = (item, quantity) => {
-    // Creamos variable de auxiliar cantidad, que sera la que guardaremos
+    // Creamos variable de auxiliar cantidad, que sera la que guardaremos. La original la usaremos para mostrar en el toast message
     let quantityAdd = quantity;
 
     // Verificamos que no exista el articulo en el carrito, si existe actualizare la cantidad de el art en el carrito
@@ -38,10 +38,10 @@ export default function CartContextProvider({ children }) {
     }
 
     // añadimos atributos utiles
-    item["quantity"] = quantityAdd;
-    item["subtotal"] = quantityAdd * item.price;
+    item = {quantity: quantityAdd, ...item};
+    item = {subtotal: quantityAdd * item.price, ...item};
     // agregamos el item al carro
-    setArticlesCart([...articlesCart, ...[item]]);
+    setArticlesCart([...articlesCart, item])
 
     showSuccessAddToCart(quantity, item.title);
   };
@@ -103,7 +103,7 @@ export default function CartContextProvider({ children }) {
   const getItemsCountCart = () => {
     let count = 0;
     articlesCart.map((article) => {
-      count = count + article.quantity;
+      count += article.quantity;
     });
     return count;
   };
@@ -111,7 +111,7 @@ export default function CartContextProvider({ children }) {
   const getTotalCart = () => {
     let total = 0;
     articlesCart.map((article) => {
-      total = total + article.subtotal;
+      total += article.subtotal;
     });
     return total;
   };
