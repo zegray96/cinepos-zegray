@@ -4,7 +4,7 @@ const articles = [
         "title": "Reloj Michelle Plateado con iman",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 879,
-        "picture_url": "Reloj-Michelle-Plateado-con-iman.jpg",
+        "picture_url": "https://i.ibb.co/BPBZczN/Reloj-Michelle-Plateado-con-iman.jpg",
         "stock": 2,
         "category": {
             "id": 1,
@@ -16,7 +16,7 @@ const articles = [
         "title": "Reloj Fausta Negro",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 879,
-        "picture_url": "Reloj-Fausta-Negro.jpg",
+        "picture_url": "https://i.ibb.co/bKYBk1n/Reloj-Fausta-Negro.jpg",
         "stock": 100,
         "category": {
             "id": 1,
@@ -28,7 +28,7 @@ const articles = [
         "title": "Reloj Loto Blanco",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 799,
-        "picture_url": "Reloj-Loto-Blanco.jpg",
+        "picture_url": "https://i.ibb.co/nmfDjjh/Reloj-Loto-Blanco.jpg",
         "stock": 100,
         "category": {
             "id": 1,
@@ -40,7 +40,7 @@ const articles = [
         "title": "Reloj Digital Forever Blanco",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 699,
-        "picture_url": "Reloj-Digital-Forever-Blanco.jpg",
+        "picture_url": "https://i.ibb.co/br6V1Sd/Reloj-Digital-Forever-Blanco.jpg",
         "stock": 100,
         "category": {
             "id": 1,
@@ -52,7 +52,7 @@ const articles = [
         "title": "Anillo Girasol acero blanco",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 249,
-        "picture_url": "Anillo-Girasol-acero-blanco.jpg",
+        "picture_url": "https://i.ibb.co/zQdWPqS/Anillo-Girasol-acero-blanco.jpg",
         "stock": 100,
         "category": {
             "id": 2,
@@ -64,7 +64,7 @@ const articles = [
         "title": "Collar Reir 42 Cm Acero blanco",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 499,
-        "picture_url": "Collar-Reir-42-Cm-Acero-blanco.jpg",
+        "picture_url": "https://i.ibb.co/SwjpvbD/Collar-Reir-42-Cm-Acero-blanco.jpg",
         "stock": 100,
         "category": {
             "id": 2,
@@ -76,7 +76,7 @@ const articles = [
         "title": "Esclava Inicial 'S' 6,5 Cm Acero blanco",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 399,
-        "picture_url": "Esclava-Inicial-Acero-blanco.jpg",
+        "picture_url": "https://i.ibb.co/vQqhXGS/Esclava-Inicial-Acero-blanco.jpg",
         "stock": 100,
         "category": {
             "id": 2,
@@ -88,7 +88,7 @@ const articles = [
         "title": "Collar Kaley 45 Cm Acero blanco",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 999,
-        "picture_url": "Collar-Kaley-45-Cm-Acero-blanco.jpg",
+        "picture_url": "https://i.ibb.co/8KzN3PZ/Collar-Kaley-45-Cm-Acero-blanco.jpg",
         "stock": 100,
         "category": {
             "id": 2,
@@ -100,7 +100,7 @@ const articles = [
         "title": "Collar Cruz Vacia 45 Cm Acero dorado",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 419,
-        "picture_url": "Collar-Cruz-Vacia-45-Cm-Acero-dorado.jpg",
+        "picture_url": "https://i.ibb.co/vXy8bKC/Collar-Cruz-Vacia-45-Cm-Acero-dorado.jpg",
         "stock": 100,
         "category": {
             "id": 3,
@@ -112,7 +112,7 @@ const articles = [
         "title": "Pulsera Donkey 19 Cm Acero dorado",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 435,
-        "picture_url": "Pulsera-Donkey-19-Cm-Acero-dorado.jpg",
+        "picture_url": "https://i.ibb.co/FHxXgxv/Pulsera-Donkey-19-Cm-Acero-dorado.jpg",
         "stock": 100,
         "category": {
             "id": 3,
@@ -124,7 +124,7 @@ const articles = [
         "title": "Aros Key Acero dorado",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 269,
-        "picture_url": "Aros-Key-Acero-dorado.jpg",
+        "picture_url": "https://i.ibb.co/PQSVvdW/Aros-Key-Acero-dorado.jpg",
         "stock": 100,
         "category": {
             "id": 3,
@@ -136,7 +136,7 @@ const articles = [
         "title": "Collar Burlete 44 Cm Acero Dorado",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 719,
-        "picture_url": "Collar-Burlete-44-Cm-Acero-Dorado.jpg",
+        "picture_url": "https://i.ibb.co/7nY7NRY/Collar-Burlete-44-Cm-Acero-Dorado.jpg",
         "stock": 100,
         "category": {
             "id": 3,
@@ -148,7 +148,7 @@ const articles = [
         "title": "Aros Juliaca Acero quirurgico",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 299,
-        "picture_url": "Aros-Juliaca-Acero-quirurgico.jpg",
+        "picture_url": "https://i.ibb.co/6W93qFF/Aros-Juliaca-Acero-quirurgico.jpg",
         "stock": 100,
         "category": {
             "id": 4,
@@ -160,7 +160,7 @@ const articles = [
         "title": "Anillo Keira Estrella Acero quirurgico",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 199,
-        "picture_url": "Anillo-Keira-Estrella-Acero-quirurgico.jpg",
+        "picture_url": "https://i.ibb.co/hCYTt9G/Anillo-Keira-Estrella-Acero-quirurgico.jpg",
         "stock": 100,
         "category": {
             "id": 4,
@@ -172,7 +172,7 @@ const articles = [
         "title": "Collar Valquiria Alita 42 Cm Acero Quirúrgico",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 389,
-        "picture_url": "Collar-Valquiria-Alita-42-Cm-Acero-Quirurgico.jpg",
+        "picture_url": "https://i.ibb.co/M8gzmW8/Collar-Valquiria-Alita-42-Cm-Acero-Quirurgico.jpg",
         "stock": 100,
         "category": {
             "id": 4,
@@ -184,7 +184,7 @@ const articles = [
         "title": "Collar Valquiria Lunita 42 Cm Acero Quirúrgico",
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim officia odio repudiandae exercitationem laboriosam necessitatibus amet praesentium corrupti suscipit consequuntur placeat, architecto sed minus dicta ad neque cumque impedit iusto.",
         "price": 389,
-        "picture_url": "Collar-Valquiria-Lunita-42-Cm-Acero-Quirurgico.jpg",
+        "picture_url": "https://i.ibb.co/4SnGLGn/Collar-Valquiria-Lunita-42-Cm-Acero-Quirurgico.jpg",
         "stock": 100,
         "category": {
             "id": 4,
