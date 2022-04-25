@@ -26,7 +26,7 @@ export default function ItemDetail({ article }) {
         <div className="row articleDetail">
           <div className="image col-12 md:col-6">
             <Image
-              src={`${article.picture_url}`}
+              src={article.picture_url}
               alt="Image"
               width="100%"
               preview

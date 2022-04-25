@@ -44,7 +44,7 @@ export default function ItemDetailContainer() {
         // Ocultamos el skeleton
         setLoading(false);
       });
-  }, [articleId]);
+  }, []);
 
   return (
     <>

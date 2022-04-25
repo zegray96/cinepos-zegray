@@ -6,7 +6,7 @@ import { CartContext } from "../context/CartContext";
 import { Button } from "primereact/button";
 
 export default function NavBar() {
-  const { getItemsCountCart } = useContext(CartContext);
+  const { countCart } = useContext(CartContext);
   const [isVisibleItems, setIsVisibleItems] = useState(false);
 
   const itemsMenu = [
@@ -75,7 +75,7 @@ export default function NavBar() {
             icon="pi pi-user"
             className="mr-4 ml-4 p-button-sm p-button-info"
           ></Button>
-          {getItemsCountCart() && <CartWidget />}
+          {countCart && <CartWidget />}
         </div>
 
         <nav className={`divItemsMenu ${isVisibleItems ? "showNav" : ""}`}>

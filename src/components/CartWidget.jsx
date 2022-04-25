@@ -3,7 +3,7 @@ import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 export default function CartWidget() {
-  const { getItemsCountCart } = useContext(CartContext);
+  const { countCart } = useContext(CartContext);
 
   return (
     <div className="cartButton">
@@ -13,7 +13,7 @@ export default function CartWidget() {
           style={{ fontSize: "2em" }}
         >
           <span className="p-badge p-component p-badge-no-gutter">
-            {getItemsCountCart()}
+            {countCart}
           </span>
         </i>
       </Link>

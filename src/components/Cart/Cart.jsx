@@ -3,22 +3,39 @@ import { Column } from "primereact/column";
 import { Button } from "primereact/button";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
+import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 
 export default function Cart({ articlesList }) {
   const {
-    openDeleteConfirmDialog,
-    openClearConfirmDialog,
-    getTotalCart,
-    getItemsCountCart,
+    removeItem,
+    clear,
+    countCart,
+    totalCart
   } = useContext(CartContext);
 
-  const [totalCart, setTotalCart] = useState(0);
-  const [itemsCountCart, setItemsCountCart] = useState(0);
+  const openClearConfirmDialog = () => {
+    confirmDialog({
+      message: "Esta seguro de eliminar todos los articulos del carrito?",
+      header: "Mensaje de confirmación",
+      icon: "pi pi-info-circle",
+      acceptClassName: "p-button-outlined p-button-danger",
+      rejectClassName: "p-button-outlined p-button-primary",
+      acceptLabel: "Si",
+      accept: () => clear(),
+    });
+  };
 
-  useEffect(() => {
-    setTotalCart(getTotalCart());
-    setItemsCountCart(getItemsCountCart());
-  }, [getItemsCountCart]);
+  const openDeleteConfirmDialog = (article) => {
+    confirmDialog({
+      message: "Esta seguro de eliminar el articulo del carrito?",
+      header: "Mensaje de confirmación",
+      icon: "pi pi-info-circle",
+      acceptClassName: "p-button-outlined p-button-danger",
+      rejectClassName: "p-button-outlined p-button-primary",
+      acceptLabel: "Si",
+      accept: () => removeItem(article),
+    });
+  };
 
   /** Table templates */
   const priceBodyTemplate = (rowData) => {
@@ -34,7 +51,7 @@ export default function Cart({ articlesList }) {
       <div className="text-center">
         <img
           height="100"
-          src={`/articlesImg/${rowData.picture_url}`}
+          src={rowData.picture_url}
           alt={rowData.picture_url}
           className="product-image cart-articleImg"
         />
@@ -57,7 +74,8 @@ export default function Cart({ articlesList }) {
 
   return (
     <>
-      {!itemsCountCart ? (
+     <ConfirmDialog />
+      {!countCart ? (
         <div className="flex flex-row justify-content-center">
           <p className="text-3xl">Tu carrito está vacío</p>
         </div>
