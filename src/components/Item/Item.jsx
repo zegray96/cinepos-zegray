@@ -11,7 +11,7 @@ export default function Item({ itemInfo }) {
               <div
                 className="image"
                 style={{
-                  backgroundImage: `url(${itemInfo.picture_url})`,
+                  backgroundImage: `url(${itemInfo.image_url})`,
                 }}
               ></div>
             </Link>

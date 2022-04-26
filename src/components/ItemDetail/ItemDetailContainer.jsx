@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { getArticleById } from "../../utils/articles";
+// import { getArticleById } from "../../utils/articles";
 import { Skeleton } from "primereact/skeleton";
 import { useParams } from "react-router-dom";
 import ErrorPage from "../ErrorPage";
+import { getArticleById } from "../../utils/querys";
 
 export default function ItemDetailContainer() {
   const { articleId } = useParams();
@@ -34,7 +35,12 @@ export default function ItemDetailContainer() {
   useEffect(() => {
     getArticleById(articleId)
       .then((res) => {
-        setArticle(res);
+        if (res.data()) {
+          setArticle({ id: res.id, ...res.data() });
+        }else{
+          setError("Articulo no encontrado!");
+        }
+        
         setLoading(false);
       })
       .catch((err) => {

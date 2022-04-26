@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContainer from './components/Cart/CartContainer.jsx';
 import CartContextProvider from './context/CartContext.jsx';
 import ToastMessageContextProvider from './context/ToastMessageContext.jsx';
+import initializeFirebase from './utils/firebaseConfig.js';
+initializeFirebase();
 
 function App() {
 

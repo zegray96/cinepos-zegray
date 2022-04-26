@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
-import {
-  getArticles,
-  getArticlesByCategoryId,
-  getCategoryBySlug,
-} from "../../utils/articles";
 import { Skeleton } from "primereact/skeleton";
 import ErrorPage from "../ErrorPage";
+import {
+  getArticles,
+  getArticlesByCategorySlug,
+} from "../../utils/querys";
 
 export default function ItemListContainer() {
   const { categorySlug } = useParams();
@@ -41,33 +40,37 @@ export default function ItemListContainer() {
     setError(null);
 
     if (categorySlug) {
-      // Buscamos la categoria por el slug
-      getCategoryBySlug(categorySlug)
+      // Mostraremos los articulos de esa categoria
+      getArticlesByCategorySlug(categorySlug)
         .then((res) => {
-          // Mostraremos los articulos de esa categoria
-          getArticlesByCategoryId(res.id)
-            .then((res) => {
-              setItemsList(res);
-            })
-            .catch((err) => {
-              setError(err);
-            })
-            .finally(() => {
-              // Ocultamos el skeleton
-              setLoading(false);
-            });
+          if (res.size === 0) {
+            setError("No se encontraron resultados");
+          } else {
+            // mapeamos los resultados
+            setItemsList(
+              res.docs.map((item) => ({ id: item.id, ...item.data() }))
+            );
+          }
         })
         .catch((err) => {
+          setError(err);
+        })
+        .finally(() => {
           // Ocultamos el skeleton
           setLoading(false);
-          // Mostramos mensaje de error
-          setError(err);
         });
     } else {
       // Mostraremos todos los articulos
       getArticles()
         .then((res) => {
-          setItemsList(res);
+          if (res.size === 0) {
+            setError("No se encontraron resultados");
+          } else {
+            // mapeamos los resultados
+            setItemsList(
+              res.docs.map((item) => ({ id: item.id, ...item.data() }))
+            );
+          }
         })
         .catch((err) => {
           setError(err);
