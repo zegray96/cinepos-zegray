@@ -13,34 +13,32 @@ export default function ItemDetailContainer() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const skeletonTemplate = () => {
-    return (
-      <div className="mt-5 mb-5">
-        <div className="row">
-          <div className="col-12 md:col-6">
-            <Skeleton height="505px"></Skeleton>
-          </div>
-          <div className="col-12 md:col-6">
-            <Skeleton height="20px"></Skeleton>
+  const skeletonTemplate = (
+    <div className="mt-5 mb-5">
+      <div className="row">
+        <div className="col-12 md:col-6">
+          <Skeleton height="505px"></Skeleton>
+        </div>
+        <div className="col-12 md:col-6">
+          <Skeleton height="20px"></Skeleton>
 
-            <Skeleton className="mt-5" height="20px"></Skeleton>
+          <Skeleton className="mt-5" height="20px"></Skeleton>
 
-            <Skeleton className="mt-5" height="400px"></Skeleton>
-          </div>
+          <Skeleton className="mt-5" height="400px"></Skeleton>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 
   useEffect(() => {
     getArticleById(articleId)
       .then((res) => {
         if (res.data()) {
           setArticle({ id: res.id, ...res.data() });
-        }else{
+        } else {
           setError("Articulo no encontrado!");
         }
-        
+
         setLoading(false);
       })
       .catch((err) => {
@@ -55,7 +53,7 @@ export default function ItemDetailContainer() {
   return (
     <>
       <div className="container-md">
-        {loading && skeletonTemplate()}
+        {loading && skeletonTemplate}
         {error && <ErrorPage errorMessage={error} />}
         {!loading && !error && <ItemDetail article={article} />}
       </div>
