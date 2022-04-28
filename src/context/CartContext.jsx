@@ -55,9 +55,11 @@ export default function CartContextProvider({ children }) {
     }
   };
 
-  const clear = () => {
+  const clear = (showMessage = true) => {
     setArticlesCart([]);
-    showSuccess("Se eliminaron todos los articulos del carrito!");
+    if (showMessage) {
+      showSuccess("Se eliminaron todos los articulos del carrito!");
+    }
   };
 
   const isInCart = (id) => {

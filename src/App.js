@@ -7,6 +7,8 @@ import CartContainer from './components/Cart/CartContainer.jsx';
 import CartContextProvider from './context/CartContext.jsx';
 import ToastMessageContextProvider from './context/ToastMessageContext.jsx';
 import initializeFirebase from './utils/firebaseConfig.js';
+import CheckoutContainer from './components/Checkout/CheckoutContainer.jsx';
+
 initializeFirebase();
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
             <Route exact path="/category/:categorySlug" element={<ItemListContainer />} />
             <Route exact path="/item/:articleId" element={<ItemDetailContainer />} />
             <Route exact path="/cart" element={<CartContainer />} />
+            <Route exact path="/checkout" element={<CheckoutContainer />} />
           </Routes>
 
           <Footer />

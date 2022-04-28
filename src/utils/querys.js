@@ -1,4 +1,4 @@
-import { doc, getDoc, getFirestore, getDocs, collection, orderBy, query, where, limit } from "firebase/firestore";
+import { addDoc, doc, getDoc, getFirestore, getDocs, collection, orderBy, query, where, limit } from "firebase/firestore";
 
 
 export const getArticleById = (id) => {
@@ -22,4 +22,11 @@ export const getArticlesByCategorySlug = (slug) => {
     const q = query(articlesRef, where("category.slug", "==", slug));
 
     return getDocs(q);
+}
+
+export const sendOrder = (order) => {
+    const db = getFirestore();
+    const ordersRef = collection(db, "orders");
+
+    return addDoc(ordersRef, order);
 }

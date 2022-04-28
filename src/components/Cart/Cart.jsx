@@ -4,14 +4,10 @@ import { Button } from "primereact/button";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
+import { Link } from "react-router-dom";
 
 export default function Cart({ articlesList }) {
-  const {
-    removeItem,
-    clear,
-    countCart,
-    totalCart
-  } = useContext(CartContext);
+  const { removeItem, clear, countCart, totalCart } = useContext(CartContext);
 
   const openClearConfirmDialog = () => {
     confirmDialog({
@@ -51,8 +47,8 @@ export default function Cart({ articlesList }) {
       <div className="text-center">
         <img
           height="100"
-          src={rowData.picture_url}
-          alt={rowData.picture_url}
+          src={rowData.image_url}
+          alt={rowData.image_url}
           className="product-image cart-articleImg"
         />
       </div>
@@ -74,10 +70,13 @@ export default function Cart({ articlesList }) {
 
   return (
     <>
-     <ConfirmDialog />
+      <ConfirmDialog />
       {!countCart ? (
-        <div className="flex flex-row justify-content-center">
+        <div className="flex flex-column justify-content-center align-items-center">
           <p className="text-3xl">Tu carrito está vacío</p>
+          <Link to="/" className="no-underline">
+            <Button label="Ver articulos" className="p-button-lg" />
+          </Link>
         </div>
       ) : (
         <div className="row">
@@ -116,7 +115,9 @@ export default function Cart({ articlesList }) {
             <p className="text-4xl">Total: ${totalCart}</p>
           </div>
           <div className="col-12 flex justify-content-end">
-            <Button label="Finalizar compra" className="p-button-lg" />
+            <Link to="/checkout" className="no-underline">
+              <Button label="Finalizar compra" className="p-button-lg" />
+            </Link>
           </div>
         </div>
       )}
