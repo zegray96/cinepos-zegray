@@ -132,13 +132,12 @@ ul li {
 
 .footer {
   margin-top: 100px;
-  background-color: #f7eee6;
-  display: flex;
-  align-items: center;
   width: 100%; }
-  .footer .secondDiv {
-    background-color: black;
-    color: white; }
+  .footer .footerContent {
+    background-color: #f7eee6; }
+    .footer .footerContent .secondDiv {
+      background-color: black;
+      color: white; }
 
 .p-image-preview {
   max-height: 82vh; }
@@ -215,3 +214,9 @@ ul li {
 /*End category tag*/
 .cart-articleImg {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; }
+
+.greek-pattern {
+  background-image: url("/src/img/greekpattern.png");
+  background-size: contain;
+  background-repeat: repeat;
+  height: 40px; }

@@ -44,6 +44,7 @@ export default function NavBar() {
 
   return (
     <>
+      <div className="greek-pattern"></div>
       <header className="header">
         <div className="firstDiv">
           <div className="logo">
