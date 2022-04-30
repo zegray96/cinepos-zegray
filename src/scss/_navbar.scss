@@ -7,7 +7,6 @@ ul li {
 }
 
 .header {
-  margin-bottom: 100px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
   width: 100%;
@@ -23,7 +22,7 @@ ul li {
     .logo {
       img {
         width: 100%;
-        max-width: 150px;
+        max-width: 100px;
         height: auto;
       }
     }
