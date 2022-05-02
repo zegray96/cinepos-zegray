@@ -1,4 +1,4 @@
-import { addDoc, doc, getDoc, getFirestore, getDocs, collection, orderBy, query, where, limit, serverTimestamp } from "firebase/firestore";
+import { addDoc, doc, getDoc, getFirestore, getDocs, collection, orderBy, query, where, limit, serverTimestamp, writeBatch } from "firebase/firestore";
 
 
 export const getArticleById = (id) => {

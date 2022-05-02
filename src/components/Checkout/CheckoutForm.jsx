@@ -156,13 +156,13 @@ export default function CheckoutForm({ articlesCart, totalCart }) {
               <p className="text-2xl m-0">Mi pedido</p>
               <div className="mt-5">
                 {articlesCart.map((article) => (
-                  <>
-                    <div key={article.id} className="flex justify-content-between">
+                  <div key={article.id}>
+                    <div className="flex justify-content-between">
                       <div>{article.title}</div>
                       <div className="font-bold">${article.price}</div>
                     </div>
                     <Divider />
-                  </>
+                  </div>
                 ))}
               </div>
 
