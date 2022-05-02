@@ -51,28 +51,27 @@ export default function CheckoutForm({ articlesCart, totalCart }) {
     event.preventDefault();
     if (validateForm()) {
       setLoadingForm(true);
-      setTimeout(() => {
-        const order = {
-          buyer: {
-            surname_name: surnameNameValue,
-            phone: phoneValue,
-            email: emailValue,
-          },
-          articles: articlesCart,
-          total: totalCart,
-        };
+      const order = {
+        buyer: {
+          surname_name: surnameNameValue,
+          phone: phoneValue,
+          email: emailValue,
+        },
+        articles: articlesCart,
+        total: totalCart,
+      };
 
-        sendOrder(order)
-          .then((res) => {
-            setLoadingForm(false);
-            setOrderId(res.id);
-            // Limpiamos carrito y evitamos que no muestre el msj
-            clear(false);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }, 2000);
+      sendOrder(order)
+        .then((res) => {
+          setLoadingForm(false);
+          setOrderId(res);
+          // Limpiamos carrito y evitamos que no muestre el msj
+          clear(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
     }
   };
 
