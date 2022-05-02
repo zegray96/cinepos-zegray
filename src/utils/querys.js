@@ -1,4 +1,4 @@
-import { addDoc, doc, getDoc, getFirestore, getDocs, collection, orderBy, query, where, limit } from "firebase/firestore";
+import { addDoc, doc, getDoc, getFirestore, getDocs, collection, orderBy, query, where, limit, serverTimestamp } from "firebase/firestore";
 
 
 export const getArticleById = (id) => {
@@ -25,6 +25,8 @@ export const getArticlesByCategorySlug = (slug) => {
 }
 
 export const sendOrder = (order) => {
+    // seteamos fecha de servidor
+    order.date = serverTimestamp();
     const db = getFirestore();
     const ordersRef = collection(db, "orders");
 
