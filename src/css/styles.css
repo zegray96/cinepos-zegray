@@ -2,6 +2,9 @@
 body {
   font-family: "Montserrat", sans-serif; }
 
+.monserratFont {
+  font-family: "Montserrat", sans-serif !important; }
+
 .card {
   overflow: hidden;
   position: relative;
@@ -11,13 +14,25 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
   .card .top {
+    position: relative;
+    padding-top: 100%;
+    overflow: hidden;
     height: 400px; }
-    .card .top .image {
+    .card .top .imageDiv {
+      transition: all 0.8s ease;
+      position: absolute;
+      top: 0;
+      width: 100%;
       height: 100%;
       background-position: center;
+      background-repeat: no-repeat;
       background-size: cover; }
-      .card .top .image:hover {
-        background-size: 150%; }
+      .card .top .imageDiv .imageBackground {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; }
+      .card .top .imageDiv:hover {
+        transform: scale(1.2); }
   .card .content {
     text-align: center;
     padding: 10px; }
@@ -203,7 +218,8 @@ ul li {
   position: relative;
   padding-top: 100%;
   overflow: hidden;
-  background-color: #333333; }
+  background-color: #333333;
+  height: 100%; }
   .categoryCard .imageDiv {
     transition: all 0.8s ease;
     position: absolute;
@@ -234,6 +250,33 @@ ul li {
       font-size: 30px;
       font-weight: bold; }
 
+/*----GRID CATEGORIES----*/
+.catRelojes {
+  grid-area: catRelojes; }
+
+.catAceroBlanco {
+  grid-area: catAceroBlanco; }
+
+.catAceroDorado {
+  grid-area: catAceroDorado; }
+
+.catAceroQuirurgico {
+  grid-area: catAceroQuirurgico; }
+
+.gridCategories {
+  display: grid;
+  grid-template-areas: "catRelojes catAceroBlanco catAceroDorado" "catRelojes catAceroQuirurgico catAceroQuirurgico";
+  gap: 10px;
+  padding: 10px; }
+
+@media (max-width: 991px) {
+  .gridCategories {
+    grid-template-areas: "catRelojes catAceroBlanco " "catAceroQuirurgico catAceroDorado"; } }
+
+@media (max-width: 575px) {
+  .gridCategories {
+    grid-template-areas: "catRelojes" "catAceroBlanco" "catAceroQuirurgico " "catAceroDorado"; } }
+
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -252,6 +295,9 @@ ul li {
 .btn-default {
   background-color: #f7eee6;
   color: black; }
+  .btn-default:hover {
+    background-color: #d1b8a2;
+    color: black; }
 
 .row {
   display: flex;

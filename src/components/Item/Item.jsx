@@ -8,15 +8,11 @@ export default function Item({ itemInfo }) {
         <div className="card">
           <div className="top">
             <Link to={`/item/${itemInfo.id}`}>
-              <div
-                className="image"
-                style={{
-                  backgroundImage: `url(${itemInfo.image_url})`,
-                }}
-              ></div>
+              <div className="imageDiv">
+                <img className="imageBackground" src={itemInfo.image_url} />
+              </div>
             </Link>
           </div>
-
           <div className="content">
             <div className="title">{itemInfo.title}</div>
             <div className="price">$ {itemInfo.price}</div>

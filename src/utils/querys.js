@@ -8,6 +8,14 @@ export const getArticleById = (id) => {
     return getDoc(artRef);
 }
 
+export const getArticlesHome = () => {
+    const db = getFirestore();
+    const articlesRef = collection(db, "articles");
+    const q = query(articlesRef, limit(10));
+
+    return getDocs(q);
+}
+
 export const getArticles = () => {
     const db = getFirestore();
     const articlesRef = collection(db, "articles");
@@ -23,16 +31,6 @@ export const getArticlesByCategorySlug = (slug) => {
 
     return getDocs(q);
 }
-
-// export const sendOrder = (order) => {
-//     // seteamos fecha de servidor
-//     order.date = serverTimestamp();
-//     const db = getFirestore();
-//     const ordersRef = collection(db, "orders");
-
-//     return addDoc(ordersRef, order);
-// }
-
 
 /** Funcion con batch */
 export async function sendOrder(order) {
