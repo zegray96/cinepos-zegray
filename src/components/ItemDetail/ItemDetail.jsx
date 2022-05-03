@@ -15,7 +15,7 @@ export default function ItemDetail({ article }) {
     let msg = addItem(article, quantity);
     if (msg != "Cantidad supera el stock actual") {
       setShowGoCart(true);
-    }else{
+    } else {
       setOutStockMsg(msg);
     }
   };
@@ -25,12 +25,7 @@ export default function ItemDetail({ article }) {
       <div className="mt-5 mb-5">
         <div className="row articleDetail">
           <div className="image col-12 md:col-6">
-            <Image
-              src={article.image_url}
-              alt="Image"
-              width="100%"
-              preview
-            />
+            <Image src={article.image_url} alt="Image" width="100%" preview />
           </div>
 
           <div className="content col-12 md:col-6">
@@ -53,14 +48,17 @@ export default function ItemDetail({ article }) {
             <div className="mt-8">
               {showGoCart ? (
                 <>
-                  <Link to="/cart" className="no-underline">
-                    <Button className="w-full mt-3" label="Finalizar Compra" />
-                  </Link>
                   <Button
-                    className="w-full mt-3"
+                    className="w-full mt-3 p-button-info"
                     label="Seguir Comprando"
                     onClick={() => setShowGoCart(false)}
                   />
+                  <Link to="/cart" className="no-underline">
+                    <Button
+                      className="w-full mt-3 p-button-success"
+                      label="Finalizar Compra"
+                    />
+                  </Link>
                 </>
               ) : (
                 <>
@@ -68,9 +66,10 @@ export default function ItemDetail({ article }) {
                   <span className="mr-2">
                     <span>{article.stock}</span>
                   </span>
-                  
-                  {outStockMsg && <p className="p-error font-bold">{outStockMsg}</p>}
-                  
+
+                  {outStockMsg && (
+                    <p className="p-error font-bold">{outStockMsg}</p>
+                  )}
 
                   <ItemCount
                     addToCart={addToCart}

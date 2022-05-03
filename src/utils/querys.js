@@ -36,6 +36,11 @@ export const getArticlesByCategorySlug = (slug) => {
 export async function sendOrder(order) {
     // seteamos fecha de servidor
     order.date = serverTimestamp();
+    // seteamos estado de orden
+    order.status = {
+        detail: "Pedido generado",
+        date: serverTimestamp()
+    }
     const db = getFirestore();
     const batch = writeBatch(db);
 

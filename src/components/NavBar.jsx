@@ -4,10 +4,13 @@ import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { Button } from "primereact/button";
+import { Sidebar } from "primereact/sidebar";
+import { InputText } from "primereact/inputtext";
 
 export default function NavBar() {
   const { countCart } = useContext(CartContext);
   const [isVisibleItems, setIsVisibleItems] = useState(false);
+  const [visibleSearch, setVisibleSearch] = useState(false);
 
   const itemsMenu = [
     {
@@ -44,6 +47,20 @@ export default function NavBar() {
 
   return (
     <>
+      <Sidebar
+        visible={visibleSearch}
+        position="top"
+        onHide={() => setVisibleSearch(false)}
+      >
+        <div className="row justify-content-center">
+          <div className="col-12 md:col-6">
+            <div className="p-inputgroup">
+              <InputText placeholder="Buscar" />
+              <Button icon="pi pi-search" className="p-button-info" />
+            </div>
+          </div>
+        </div>
+      </Sidebar>
       <div className="greek-pattern"></div>
       <header className="header">
         <div className="firstDiv">
@@ -70,12 +87,9 @@ export default function NavBar() {
         </div>
 
         <div className="secondDiv">
-          <Button
-            type="button"
-            label="Mi Cuenta"
-            icon="pi pi-user"
-            className="mr-4 ml-4 p-button-sm p-button-info"
-          ></Button>
+          <div className="flex align-items-center " >
+            <i className="text-white pi pi-search mr-3 ml-3 cursor-pointer" style={{ fontSize: "1.5em" }} onClick={() => setVisibleSearch(true)}></i>
+          </div>
           {countCart && <CartWidget />}
         </div>
 

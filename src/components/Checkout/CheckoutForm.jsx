@@ -43,7 +43,11 @@ export default function CheckoutForm({ articlesCart, totalCart }) {
     if (!emailValue) {
       setEmailInvalidMsg("Ingrese email");
       validate = false;
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(emailValue)) {
+      setEmailInvalidMsg("Ingrese email valido. Ejemplo: example@mail.com");
+      validate = false;
     }
+
     return validate;
   };
 
@@ -71,7 +75,6 @@ export default function CheckoutForm({ articlesCart, totalCart }) {
         .catch((err) => {
           console.log(err);
         });
-
     }
   };
 
@@ -88,6 +91,8 @@ export default function CheckoutForm({ articlesCart, totalCart }) {
           <p>
             Su N° de pedido es: <strong>{orderId}</strong>
           </p>
+          <p>Guardelo para ver el seguimiento de su pedido</p>
+          <Button label="Seguimiento de pedido" className="p-button-info" />
         </div>
       )}
       {!orderId && !loadingForm && (
@@ -105,9 +110,7 @@ export default function CheckoutForm({ articlesCart, totalCart }) {
                       value={surnameNameValue}
                       onChange={(e) => setSurnameNameValue(e.target.value)}
                     />
-                    <label className={surnameNameInvalidMsg && "p-error"}>
-                      Apellido y Nombre
-                    </label>
+                    <label>Apellido y Nombre</label>
                   </span>
 
                   {surnameNameInvalidMsg && (
@@ -145,7 +148,11 @@ export default function CheckoutForm({ articlesCart, totalCart }) {
                     <small className="p-error block">{emailInvalidMsg}</small>
                   )}
                 </div>
-                <Button type="submit" label="Enviar pedido" className="mt-2" />
+                <Button
+                  type="submit"
+                  label="Enviar pedido"
+                  className="mt-2 p-button-info"
+                />
               </form>
             </div>
           </div>

@@ -63,7 +63,7 @@ export default function ToastMessageContextProvider({ children }) {
                 onClick={() => redirectToCart()}
                 label="Ver Carrito"
                 icon="pi pi-shopping-cart"
-                className="p-button-sm"
+                className="p-button-sm p-button-info"
               />
             </div>
           </div>

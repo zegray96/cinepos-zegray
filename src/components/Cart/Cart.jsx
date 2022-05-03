@@ -15,7 +15,7 @@ export default function Cart({ articlesList }) {
       header: "Mensaje de confirmación",
       icon: "pi pi-info-circle",
       acceptClassName: "p-button-outlined p-button-danger",
-      rejectClassName: "p-button-outlined p-button-primary",
+      rejectClassName: "p-button-outlined p-button-info",
       acceptLabel: "Si",
       accept: () => clear(),
     });
@@ -27,7 +27,7 @@ export default function Cart({ articlesList }) {
       header: "Mensaje de confirmación",
       icon: "pi pi-info-circle",
       acceptClassName: "p-button-outlined p-button-danger",
-      rejectClassName: "p-button-outlined p-button-primary",
+      rejectClassName: "p-button-outlined p-button-info",
       acceptLabel: "Si",
       accept: () => removeItem(article),
     });
@@ -84,7 +84,7 @@ export default function Cart({ articlesList }) {
             <Button
               label="Limpiar carrito"
               onClick={() => openClearConfirmDialog()}
-              className="p-button-lg p-button-outlined p-button-danger"
+              className="p-button-outlined p-button-danger"
             />
           </div>
 
@@ -116,7 +116,7 @@ export default function Cart({ articlesList }) {
           </div>
           <div className="col-12 flex justify-content-end">
             <Link to="/checkout" className="no-underline">
-              <Button label="Finalizar compra" className="p-button-lg" />
+              <Button label="Finalizar compra" className="p-button-success" />
             </Link>
           </div>
         </div>

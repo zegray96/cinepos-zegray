@@ -35,7 +35,7 @@ export default function ItemCount({ addToCart, stock, initial }) {
           disabled={quantity <= 0 || quantity > stock}
           onClick={() => addToCart( quantity)}
           label="Añadir al carrito"
-          className="p-button-outlined w-full mt-3"
+          className="p-button-outlined p-button-info w-full mt-3"
         />
       </div>
     </>
