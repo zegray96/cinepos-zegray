@@ -3,11 +3,15 @@ import { Button } from "primereact/button";
 import { sendOrder } from "../../utils/querys";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-import loadingGif from "../../img/loading.gif";
-import { Divider } from "primereact/divider";
+import { ProgressSpinner } from "primereact/progressspinner";
+import OrderSummary from "./OrderSummary";
+import ErrorPage from "../ErrorPage";
+import OrderSuccess from "./OrderSuccess";
 
-export default function CheckoutForm({ articlesCart, totalCart }) {
-  const { clear } = useContext(CartContext);
+export default function CheckoutForm() {
+  const { clear, articlesCart, totalCart } = useContext(CartContext);
+  const [error, setError] = useState(null);
+
   const [surnameNameValue, setSurnameNameValue] = useState("");
   const [phoneValue, setPhoneValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
@@ -67,118 +71,103 @@ export default function CheckoutForm({ articlesCart, totalCart }) {
 
       sendOrder(order)
         .then((res) => {
-          setLoadingForm(false);
           setOrderId(res);
           // Limpiamos carrito y evitamos que no muestre el msj
           clear(false);
         })
         .catch((err) => {
+          setError("Error al generar el pedido");
           console.log(err);
+        })
+        .finally(() => {
+          setLoadingForm(false);
         });
     }
   };
 
   return (
-    <div className="row">
-      {loadingForm && (
-        <div className="col-12 text-center">
-          <img src={loadingGif} alt="loading" width={"100px"} />
-        </div>
-      )}
-      {orderId && !loadingForm && (
-        <div className="col-12">
-          <p className="text-2xl m-0">Pedido generado exitosamente!</p>
-          <p>
-            Su N° de pedido es: <strong>{orderId}</strong>
-          </p>
-          <p>Guardelo para ver el seguimiento de su pedido</p>
-          <Button label="Seguimiento de pedido" className="p-button-info" />
-        </div>
-      )}
-      {!orderId && !loadingForm && (
-        <>
-          <div className="col-12 md:col-8">
-            <div className="card p-4">
-              <p className="text-2xl m-0">Datos de contacto</p>
+    <>
+      {error && <ErrorPage errorMessage={error} />}
 
-              <form className="p-fluid mt-3" onSubmit={onSubmitForm}>
-                <div className="field mt-5">
-                  <span className="p-float-label p-input-icon-right">
-                    <i className="pi pi-user"></i>
-                    <InputText
-                      className={surnameNameInvalidMsg && "p-invalid"}
-                      value={surnameNameValue}
-                      onChange={(e) => setSurnameNameValue(e.target.value)}
-                    />
-                    <label>Apellido y Nombre</label>
-                  </span>
-
-                  {surnameNameInvalidMsg && (
-                    <small className="p-error block">
-                      {surnameNameInvalidMsg}
-                    </small>
-                  )}
-                </div>
-                <div className="field mt-5">
-                  <span className="p-float-label p-input-icon-right ">
-                    <i className="pi pi-phone" />
-                    <InputText
-                      keyfilter="int"
-                      className={phoneInvalidMsg && "p-invalid"}
-                      value={phoneValue}
-                      onChange={(e) => setPhoneValue(e.target.value)}
-                    />
-                    <label>Celular</label>
-                  </span>
-                  {phoneInvalidMsg && (
-                    <small className="p-error block">{phoneInvalidMsg}</small>
-                  )}
-                </div>
-                <div className="field mt-5">
-                  <span className="p-float-label p-input-icon-right">
-                    <i className="pi pi-at"></i>
-                    <InputText
-                      className={emailInvalidMsg && "p-invalid"}
-                      value={emailValue}
-                      onChange={(e) => setEmailValue(e.target.value)}
-                    />
-                    <label>Email</label>
-                  </span>
-                  {emailInvalidMsg && (
-                    <small className="p-error block">{emailInvalidMsg}</small>
-                  )}
-                </div>
-                <Button
-                  type="submit"
-                  label="Enviar pedido"
-                  className="mt-2 p-button-info"
-                />
-              </form>
-            </div>
+      <div className="row">
+        {loadingForm && (
+          <div className="col-12 text-center">
+            <ProgressSpinner />
           </div>
+        )}
 
-          <div className="col-12 md:col-4">
-            <div className="card p-4">
-              <p className="text-2xl m-0">Mi pedido</p>
-              <div className="mt-5">
-                {articlesCart.map((article) => (
-                  <div key={article.id}>
-                    <div className="flex justify-content-between">
-                      <div>{article.title}</div>
-                      <div className="font-bold">${article.price}</div>
-                    </div>
-                    <Divider />
+        {!error && orderId && !loadingForm && (
+          <OrderSuccess orderId={orderId} />
+        )}
+
+        {!error && !orderId && !loadingForm && (
+          <>
+            <div className="col-12 md:col-8">
+              <div className="card p-4">
+                <p className="text-2xl m-0">Datos de contacto</p>
+
+                <form className="p-fluid mt-3" onSubmit={onSubmitForm}>
+                  <div className="field mt-5">
+                    <span className="p-float-label p-input-icon-right">
+                      <i className="pi pi-user"></i>
+                      <InputText
+                        className={surnameNameInvalidMsg && "p-invalid"}
+                        value={surnameNameValue}
+                        onChange={(e) => setSurnameNameValue(e.target.value)}
+                      />
+                      <label>Apellido y Nombre</label>
+                    </span>
+
+                    {surnameNameInvalidMsg && (
+                      <small className="p-error block">
+                        {surnameNameInvalidMsg}
+                      </small>
+                    )}
                   </div>
-                ))}
-              </div>
-
-              <div className="text-2xl mt-5 text-right">
-                Total <span className="font-bold">${totalCart}</span>
+                  <div className="field mt-5">
+                    <span className="p-float-label p-input-icon-right ">
+                      <i className="pi pi-phone" />
+                      <InputText
+                        keyfilter="int"
+                        className={phoneInvalidMsg && "p-invalid"}
+                        value={phoneValue}
+                        onChange={(e) => setPhoneValue(e.target.value)}
+                      />
+                      <label>Celular</label>
+                    </span>
+                    {phoneInvalidMsg && (
+                      <small className="p-error block">{phoneInvalidMsg}</small>
+                    )}
+                  </div>
+                  <div className="field mt-5">
+                    <span className="p-float-label p-input-icon-right">
+                      <i className="pi pi-at"></i>
+                      <InputText
+                        className={emailInvalidMsg && "p-invalid"}
+                        value={emailValue}
+                        onChange={(e) => setEmailValue(e.target.value)}
+                      />
+                      <label>Email</label>
+                    </span>
+                    {emailInvalidMsg && (
+                      <small className="p-error block">{emailInvalidMsg}</small>
+                    )}
+                  </div>
+                  <Button
+                    type="submit"
+                    label="Enviar pedido"
+                    className="mt-2 p-button-info"
+                  />
+                </form>
               </div>
             </div>
-          </div>
-        </>
-      )}
-    </div>
+
+            <div className="col-12 md:col-4">
+              <OrderSummary />
+            </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }

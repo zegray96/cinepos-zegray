@@ -54,13 +54,13 @@ export async function sendOrder(order) {
                 let newStock = articleBd.data().stock - article.quantity;
                 // Controlamos el stock
                 if (newStock < 0) {
-                    return Promise.reject("Articulo no posee stock suficiente");
+                    return Promise.reject(`Articulo con id: ${article.id} no posee stock suficiente`);
                 }
                 // actualizamos el stock de articulo
                 let artRef = doc(db, "articles", article.id);
                 batch.update(artRef, { stock: newStock });
             } else {
-                return Promise.reject("Articulo no encontrado");
+                return Promise.reject(`Articulo con id: ${article.id} no encontrado`);
             }
         })
     )

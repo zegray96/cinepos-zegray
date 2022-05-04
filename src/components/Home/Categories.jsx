@@ -9,7 +9,7 @@ export default function Categories() {
     <div className="container-md mt-8">
       <div className="gridCategories">
         <div className="catRelojes">
-          <Link to="/category/relojes">
+          <Link to="/articles/category/relojes">
             <div className="categoryCard">
               <div className="imageDiv">
                 <img className="imageBackground" src={relojes} />
@@ -21,7 +21,7 @@ export default function Categories() {
           </Link>
         </div>
         <div className="catAceroBlanco">
-          <Link to="/category/acero-blanco">
+          <Link to="/articles/category/acero-blanco">
             <div className="categoryCard">
               <div className="imageDiv">
                 <img className="imageBackground" src={aceroBlanco} />
@@ -33,7 +33,7 @@ export default function Categories() {
           </Link>
         </div>
         <div className="catAceroDorado">
-          <Link to="/category/acero-dorado">
+          <Link to="/articles/category/acero-dorado">
             <div className="categoryCard">
               <div className="imageDiv">
                 <img className="imageBackground" src={aceroDorado} />
@@ -45,7 +45,7 @@ export default function Categories() {
           </Link>
         </div>
         <div className="catAceroQuirurgico">
-          <Link to="/category/acero-quirurgico">
+          <Link to="/articles/category/acero-quirurgico">
             <div className="categoryCard" style={{ paddingTop: "260px" }}>
               <div className="imageDiv">
                 <img className="imageBackground" src={aceroQuirurgico} />

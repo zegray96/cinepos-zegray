@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Item({ itemInfo }) {
   return (
     <>
-      <div className="col-12 sm:col-6 md:col-4">
+      <div className="col-12 md:col-6 lg:col-4">
         <div className="card">
           <div className="top">
             <Link to={`/item/${itemInfo.id}`}>

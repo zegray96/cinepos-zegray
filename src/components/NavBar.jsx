@@ -6,34 +6,12 @@ import { CartContext } from "../context/CartContext";
 import { Button } from "primereact/button";
 import { Sidebar } from "primereact/sidebar";
 import { InputText } from "primereact/inputtext";
+import { itemsMenu } from "../utils/menu";
 
 export default function NavBar() {
   const { countCart } = useContext(CartContext);
   const [isVisibleItems, setIsVisibleItems] = useState(false);
   const [visibleSearch, setVisibleSearch] = useState(false);
-
-  const itemsMenu = [
-    {
-      title: "Inicio",
-      url: "/",
-    },
-    {
-      title: "Relojes",
-      url: "/category/relojes",
-    },
-    {
-      title: "Acero Blanco",
-      url: "/category/acero-blanco",
-    },
-    {
-      title: "Acero Dorado",
-      url: "/category/acero-dorado",
-    },
-    {
-      title: "Acero Quirúrgico",
-      url: "/category/acero-quirurgico",
-    },
-  ];
 
   // Cuando se cambie el tamaño de pantalla se reestableceran los valores
   window.addEventListener("resize", function () {
@@ -87,8 +65,12 @@ export default function NavBar() {
         </div>
 
         <div className="secondDiv">
-          <div className="flex align-items-center " >
-            <i className="text-white pi pi-search mr-3 ml-3 cursor-pointer" style={{ fontSize: "1.5em" }} onClick={() => setVisibleSearch(true)}></i>
+          <div className="flex align-items-center ">
+            <i
+              className="text-white pi pi-search mr-3 ml-3 cursor-pointer"
+              style={{ fontSize: "1.5em" }}
+              onClick={() => setVisibleSearch(true)}
+            ></i>
           </div>
           {countCart && <CartWidget />}
         </div>

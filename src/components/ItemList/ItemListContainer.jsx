@@ -13,15 +13,15 @@ export default function ItemListContainer() {
   const [error, setError] = useState(null);
 
   const skeletonTemplate = (
-    <div className="mt-5 mb-5">
+    <div className="mb-5">
       <div className="row">
-        <div className="col-12 sm:col-6 md:col-4">
+        <div className="col-12 md:col-6 lg:col-4">
           <Skeleton height="500px"></Skeleton>
         </div>
-        <div className="col-12 sm:col-6 md:col-4">
+        <div className="hidden md:block col-12 md:col-6 lg:col-4">
           <Skeleton height="500px"></Skeleton>
         </div>
-        <div className="col-12 sm:col-6 md:col-4">
+        <div className="hidden lg:block col-12 md:col-6 lg:col-4">
           <Skeleton height="500px"></Skeleton>
         </div>
       </div>
@@ -79,7 +79,7 @@ export default function ItemListContainer() {
 
   return (
     <>
-      <div className="container-md mt-5">
+      <div className="col-12 lg:col-9 p-0">
         {loading && skeletonTemplate}
         {error && <ErrorPage errorMessage={error} />}
         {!loading && !error && <ItemList itemsList={itemsList} />}

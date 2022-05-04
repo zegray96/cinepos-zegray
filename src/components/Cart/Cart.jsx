@@ -74,8 +74,8 @@ export default function Cart({ articlesList }) {
       {!countCart ? (
         <div className="flex flex-column justify-content-center align-items-center">
           <p className="text-3xl">Tu carrito está vacío</p>
-          <Link to="/" className="no-underline">
-            <Button label="Ver articulos" className="p-button-lg" />
+          <Link to="/articles" className="no-underline">
+            <Button label="Ver articulos" className=" p-button-info" />
           </Link>
         </div>
       ) : (
