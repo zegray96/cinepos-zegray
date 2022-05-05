@@ -11,9 +11,15 @@ export default function Search({ visibleSearch, setVisibleSearch }) {
   const [searchText, setSearchText] = useState("");
 
   const searchClick = () => {
-    setVisibleSearch(false);
-    navigate(`/articles/search/${searchText}`);
-    setSearchText("");
+    if (searchText) {
+      setVisibleSearch(false);
+      navigate(`/articles/search/${searchText}`);
+      setSearchText("");
+    }else{
+      setVisibleSearch(false);
+      navigate(`/articles`);
+      setSearchText("");
+    }
   };
   return (
     <Sidebar
