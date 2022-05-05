@@ -1,6 +1,9 @@
 # Tienda Olimpia
 Permite navegar por un listado de articulos, filtrando por categorias, o tambien utilizando el buscador de palabras. Se podra ir seleccionando articulos para ver un detalle del mismo y agregarlos al carrito para simular una compra. Una vez que se confirme la compra, se debera rellenar un formulario con datos y se generara el id del pedido. Ademas tambien se podra realizar un seguimiento del mismo, para ver el estado en que se encuentra.
 
+## Link a web online
+[Tienda Olimpia](https://olimpia-e94d7.web.app/ "Tienda Olimpia")
+
 ## Tecnologias y Librerias utilizadas
 - **React JS - version 17** 
 - **Firebase - version 9**
