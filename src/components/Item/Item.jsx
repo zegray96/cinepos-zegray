@@ -1,5 +1,6 @@
 import { Button } from "primereact/button";
 import { Link } from "react-router-dom";
+import {convertStringToPascalCase} from "../../utils/convertString";
 
 export default function Item({ itemInfo }) {
   return (
@@ -14,7 +15,7 @@ export default function Item({ itemInfo }) {
             </Link>
           </div>
           <div className="content">
-            <div className="title">{itemInfo.title}</div>
+            <div className="title">{convertStringToPascalCase(itemInfo.title)}</div>
             <div className="price">$ {itemInfo.price}</div>
           </div>
           <div className="bottom">

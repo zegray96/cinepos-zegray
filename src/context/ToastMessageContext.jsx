@@ -2,6 +2,7 @@ import { useRef, createContext } from "react";
 import { Toast } from "primereact/toast";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
+import { convertStringToPascalCase } from "../utils/convertString";
 
 export const ToastMessageContext = createContext();
 
@@ -55,7 +56,7 @@ export default function ToastMessageContextProvider({ children }) {
           <div className="p-toast-message-text">
             <span className="p-toast-summary">Realizado!</span>
             <div className="p-toast-detail">
-              Se añadieron <strong>({quantity})</strong> {articleTitle} al
+              Se añadieron <strong>({quantity})</strong> {convertStringToPascalCase(articleTitle)} al
               carrito!
             </div>
             <div className="mt-4">

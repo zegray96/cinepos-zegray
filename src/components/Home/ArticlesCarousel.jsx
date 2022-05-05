@@ -104,7 +104,7 @@ export default function ArticlesCarousel() {
             itemTemplate={articleTemplate}
           />
           <div className="text-center mt-4">
-            <Link to={`/`}>
+            <Link to={`/articles`}>
               <button className="btn btn-default monserratFont">
                 Ver más artículos
               </button>

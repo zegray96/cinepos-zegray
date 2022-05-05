@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
 import { Link } from "react-router-dom";
+import { convertStringToPascalCase } from "../../utils/convertString";
 
 export default function Cart({ articlesList }) {
   const { removeItem, clear, countCart, totalCart } = useContext(CartContext);
@@ -34,6 +35,10 @@ export default function Cart({ articlesList }) {
   };
 
   /** Table templates */
+  const titleBodyTemplate = (rowData) => {
+    return convertStringToPascalCase(rowData.title);
+  };
+
   const priceBodyTemplate = (rowData) => {
     return `$ ${rowData.price}`;
   };
@@ -95,7 +100,7 @@ export default function Cart({ articlesList }) {
                 header="Acciones"
                 body={actionsButtonsBodyTemplate}
               />
-              <Column field="title" header="Titulo" />
+              <Column field="title" header="Titulo" body={titleBodyTemplate} />
               <Column
                 field="imagen"
                 header="Imagen"

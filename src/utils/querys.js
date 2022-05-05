@@ -1,5 +1,5 @@
-import { addDoc, doc, getDoc, getFirestore, getDocs, collection, orderBy, query, where, limit, serverTimestamp, writeBatch } from "firebase/firestore";
-
+import { addDoc, doc, getDoc, getFirestore, getDocs, collection, orderBy, query, where, limit, serverTimestamp, writeBatch, startAt, endAt } from "firebase/firestore";
+import { convertStringToLowerCase } from "./convertString";
 
 export const getArticleById = (id) => {
     const db = getFirestore();
@@ -16,10 +16,17 @@ export const getArticlesHome = () => {
     return getDocs(q);
 }
 
-export const getArticles = () => {
+export const getArticles = (searchData) => {
     const db = getFirestore();
     const articlesRef = collection(db, "articles");
-    const q = query(articlesRef, orderBy("category.id", "asc"));
+    let q = null;
+    if (searchData) {
+        let lowerCaseSearchData = convertStringToLowerCase(searchData);
+        q = query(articlesRef, orderBy("title", "asc"), startAt(lowerCaseSearchData), endAt(lowerCaseSearchData + "\uf8ff"));
+    } else {
+        q = query(articlesRef, orderBy("category.id", "asc"));
+    }
+
 
     return getDocs(q);
 }

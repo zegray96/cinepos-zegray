@@ -28,6 +28,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/articles" element={<Articles />} />
+            <Route exact path="/articles/search/:searchData" element={<Articles />} />
             <Route exact path="/articles/category/:categorySlug" element={<Articles />} />
             <Route exact path="/item/:articleId" element={<ItemDetailContainer />} />
             <Route exact path="/cart" element={<CartContainer />} />

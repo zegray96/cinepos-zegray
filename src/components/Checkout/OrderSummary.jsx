@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Divider } from "primereact/divider";
+import { convertStringToPascalCase } from "../../utils/convertString";
 
 
 export default function OrderSummary() {
@@ -14,7 +15,7 @@ export default function OrderSummary() {
         {articlesCart.map((article) => (
           <div key={article.id}>
             <div className="flex justify-content-between">
-              <div>{article.title}</div>
+              <div>{convertStringToPascalCase(article.title)}</div>
               <div className="font-bold">${article.price}</div>
             </div>
             <Divider />

@@ -3,10 +3,9 @@ import logo from "../img/logo.svg";
 import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import { Button } from "primereact/button";
-import { Sidebar } from "primereact/sidebar";
-import { InputText } from "primereact/inputtext";
+
 import { itemsMenu } from "../utils/menu";
+import Search from "./Search";
 
 export default function NavBar() {
   const { countCart } = useContext(CartContext);
@@ -25,20 +24,8 @@ export default function NavBar() {
 
   return (
     <>
-      <Sidebar
-        visible={visibleSearch}
-        position="top"
-        onHide={() => setVisibleSearch(false)}
-      >
-        <div className="row justify-content-center">
-          <div className="col-12 md:col-6">
-            <div className="p-inputgroup">
-              <InputText placeholder="Buscar" />
-              <Button icon="pi pi-search" className="p-button-info" />
-            </div>
-          </div>
-        </div>
-      </Sidebar>
+      <Search visibleSearch={visibleSearch} setVisibleSearch={setVisibleSearch} />
+
       <div className="greek-pattern"></div>
       <header className="header">
         <div className="firstDiv">

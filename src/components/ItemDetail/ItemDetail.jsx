@@ -5,6 +5,7 @@ import { Divider } from "primereact/divider";
 import { Button } from "primereact/button";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import { convertStringToPascalCase } from "../../utils/convertString";
 
 export default function ItemDetail({ article }) {
   const { addItem } = useContext(CartContext);
@@ -29,9 +30,8 @@ export default function ItemDetail({ article }) {
           </div>
 
           <div className="content col-12 md:col-6">
-            <div className="title">{article.title}</div>
+            <div className="title">{convertStringToPascalCase(article.title)}</div>
             <div className="price mt-2"> $ {article.price}</div>
-
             <div className="description mt-4">
               <Divider />
               <p>{article.description}</p>

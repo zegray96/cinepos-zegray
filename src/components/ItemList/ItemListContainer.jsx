@@ -5,7 +5,7 @@ import { Skeleton } from "primereact/skeleton";
 import ErrorPage from "../ErrorPage";
 import { getArticles, getArticlesByCategorySlug } from "../../utils/querys";
 
-export default function ItemListContainer() {
+export default function ItemListContainer({ searchData }) {
   const { categorySlug } = useParams();
 
   const [itemsList, setItemsList] = useState([]);
@@ -56,7 +56,7 @@ export default function ItemListContainer() {
         });
     } else {
       // Mostraremos todos los articulos
-      getArticles()
+      getArticles(searchData)
         .then((res) => {
           if (res.size === 0) {
             setError("No se encontraron resultados");
@@ -75,7 +75,7 @@ export default function ItemListContainer() {
           setLoading(false);
         });
     }
-  }, [categorySlug]);
+  }, [categorySlug, searchData]);
 
   return (
     <>
