@@ -4,7 +4,7 @@ Permite navegar por un listado de articulos, filtrando por categorias, o tambien
 ## Tecnologias y Librerias utilizadas
 - **React JS - version 17** 
 - **Firebase - version 9**
-- **Preprocesador Sass **
+- **Preprocesador Sass**
 Utilizado para simplificar la redaccion de las hojas de estilo
 - **PrimeReact - version 7** [Ver documentacion](https://www.primefaces.org/primereact/setup/ "Ver documentacion")
 Utilizada para incluir componentes ya armados como botones, paneles, sliders, etc.
