@@ -1,9 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap");
 body {
   font-family: "Montserrat", sans-serif; }
 
 .monserratFont {
   font-family: "Montserrat", sans-serif !important; }
+
+.cinzelFont {
+  font-family: 'Cinzel', serif; }
 
 .card {
   overflow: hidden;

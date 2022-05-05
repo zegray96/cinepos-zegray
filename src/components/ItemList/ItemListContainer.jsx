@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import { Skeleton } from "primereact/skeleton";
 import ErrorPage from "../ErrorPage";
 import { getArticles, getArticlesByCategorySlug } from "../../utils/querys";
 
-export default function ItemListContainer({ searchData }) {
-  const { categorySlug } = useParams();
-
+export default function ItemListContainer({ searchData, categorySlug}) {
+  
   const [itemsList, setItemsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

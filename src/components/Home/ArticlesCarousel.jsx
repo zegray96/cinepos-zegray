@@ -4,6 +4,7 @@ import { getArticlesHome } from "../../utils/querys";
 import { Divider } from "primereact/divider";
 import { Link } from "react-router-dom";
 import { Skeleton } from "primereact/skeleton";
+import { convertStringToPascalCase } from "../../utils/convertString";
 
 export default function ArticlesCarousel() {
   const [articles, setArticles] = useState([]);
@@ -55,7 +56,7 @@ export default function ArticlesCarousel() {
           </Link>
         </div>
         <div className="content">
-          <div className="title monserratFont">{article.title}</div>
+          <div className="title monserratFont">{convertStringToPascalCase(article.title)}</div>
         </div>
         <div className="bottom">
           <div className="text-2xl font-bold monserratFont">

@@ -5,13 +5,38 @@ export default function Footer() {
         <div className="greek-pattern"></div>
         <div className="footerContent">
           <div className="row">
-            <div className="col-12 firstDiv text-center">
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Voluptatem, illum aperiam porro pariatur ex, incidunt qui
-                inventore officia facere eveniet dolorem omnis architecto unde
-                odio deleniti fugiat ad reprehenderit quo.
-              </p>
+            <div className="firstDiv w-full">
+              <div className="col-12 text-center">
+                <p className="text-5xl cinzelFont">Audentis Fortuna Iuvat</p>
+                <p className="text-2xl cinzelFont">" La fortuna favorece a los audaces "</p>
+              </div>
+              <div className="col-12 text-center mb-5">
+                <a
+                  className="no-underline mr-5"
+                  target="_blank"
+                  href="https://www.instagram.com/olimpia_accesorios__/"
+                >
+                  <span className="text-2xl ">
+                    <i
+                      className="pi pi-instagram"
+                      style={{ fontSize: "2em", color: "black" }}
+                    ></i>
+                  </span>
+                </a>
+
+                <a
+                  className="no-underline"
+                  target="_blank"
+                  href="https://wa.me/+5493"
+                >
+                  <span className="text-2xl ">
+                    <i
+                      className="pi pi-whatsapp"
+                      style={{ fontSize: "2em", color: "black" }}
+                    ></i>
+                  </span>
+                </a>
+              </div>
             </div>
 
             <div className="col-12 secondDiv text-center">

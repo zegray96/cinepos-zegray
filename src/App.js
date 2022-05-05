@@ -10,7 +10,6 @@ import initializeFirebase from './utils/firebaseConfig.js';
 import CheckoutContainer from './components/Checkout/CheckoutContainer.jsx';
 import Home from './pages/Home.jsx';
 import Articles from './pages/Articles.jsx'
-import Contact from './pages/Contact.jsx';
 import ShipmentTracking from './pages/ShipmentTracking.jsx';
 import PageNotFound from './components/PageNotFound.jsx';
 
@@ -33,7 +32,6 @@ function App() {
             <Route exact path="/item/:articleId" element={<ItemDetailContainer />} />
             <Route exact path="/cart" element={<CartContainer />} />
             <Route exact path="/checkout" element={<CheckoutContainer />} />
-            <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/shipment-tracking" element={<ShipmentTracking />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>

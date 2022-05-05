@@ -11,8 +11,4 @@ export const itemsMenu = [
         title: "Seguimiento de pedido",
         url: "/shipment-tracking",
     },
-    {
-        title: "Contacto",
-        url: "/contact",
-    },
 ];

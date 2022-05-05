@@ -1,4 +1,4 @@
-import { addDoc, doc, getDoc, getFirestore, getDocs, collection, orderBy, query, where, limit, serverTimestamp, writeBatch, startAt, endAt } from "firebase/firestore";
+import { addDoc, doc, getDoc, getFirestore, getDocs, collection, orderBy, query, where, limit, serverTimestamp, Timestamp, writeBatch, startAt, endAt } from "firebase/firestore";
 import { convertStringToLowerCase } from "./convertString";
 
 export const getArticleById = (id) => {
@@ -44,10 +44,11 @@ export async function sendOrder(order) {
     // seteamos fecha de servidor
     order.date = serverTimestamp();
     // seteamos estado de orden
-    order.status = {
+    order.status = [{
         detail: "Pedido generado",
-        date: serverTimestamp()
-    }
+        date: Timestamp.now()
+    }];
+
     const db = getFirestore();
     const batch = writeBatch(db);
 
@@ -83,5 +84,12 @@ export async function sendOrder(order) {
     }).catch((err) => {
         return Promise.reject("Ocurrio un problema al crear el pedido");
     });
+}
+
+export const getOrderById = (id) => {
+    const db = getFirestore();
+    const orderRef = doc(db, "orders", id);
+
+    return getDoc(orderRef);
 }
 
